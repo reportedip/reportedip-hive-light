@@ -9,7 +9,6 @@ parameters:
         - admin
         - uninstall.php
     bootstrapFiles:
-        - ../phpstan-bootstrap.php
         - tests/phpstan-bootstrap.php
     excludePaths:
         - vendor
