@@ -137,11 +137,12 @@ preventing recipients from recovering the original username.
 = Service provider =
 
 * Operator: Patrick Schlesinger, Germany
-* Service URL: https://reportedip.de
-* Legal notice (Impressum): https://reportedip.de/impressum/
-* Terms of use: https://reportedip.de/nutzungsbedingungen/
-* Privacy policy: https://reportedip.de/datenschutzerklaerung/
-* Contact: 1@reportedip.de
+* Service URL: [reportedip.de](https://reportedip.de)
+* Legal notice (Impressum): [reportedip.de/impressum](https://reportedip.de/impressum/)
+* Terms of use: [reportedip.de/nutzungsbedingungen](https://reportedip.de/nutzungsbedingungen/)
+* Privacy policy: [reportedip.de/datenschutzerklaerung](https://reportedip.de/datenschutzerklaerung/)
+* Source code: [github.com/reportedip/reportedip-hive-light](https://github.com/reportedip/reportedip-hive-light)
+* Contact: [1@reportedip.de](mailto:1@reportedip.de)
 
 You can switch back to Local Shield mode at any time in *Settings → ReportedIP
 Hive → Connection*. Doing so stops all external traffic immediately.
