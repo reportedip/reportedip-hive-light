@@ -1,6 +1,7 @@
 # Files NOT shipped to wordpress.org SVN / production ZIP.
 .distignore
 .editorconfig
+.git
 .gitignore
 .gitattributes
 .github

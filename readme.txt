@@ -4,7 +4,7 @@ Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -222,6 +222,13 @@ policy accordingly.
 
 == Changelog ==
 
+= 1.3.3 =
+
+* Add `.git` to `.distignore` so the GitHub-Actions deployment no longer
+  copies the repository's Git metadata directory into the wp.org SVN.
+  The 1.3.2 release accidentally shipped a `trunk/.git/` and
+  `tags/1.3.2/.git/`; both have been removed from SVN.
+
 = 1.3.2 =
 
 * Rename the user-facing plugin title to **ReportedIP Hive Light** in the
@@ -283,6 +290,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+Hygiene fix: stops the GitHub-Actions deployment from copying the `.git` directory into the wp.org SVN. No functional changes.
 
 = 1.3.2 =
 Renames the user-facing plugin title to ReportedIP Hive Light. Slug, text domain, options and database tables are unchanged — no migration required.

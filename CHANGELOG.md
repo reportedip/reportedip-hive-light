@@ -4,6 +4,15 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3] — 2026-05-17
+
+### Fixed
+
+- Add `.git` to `.distignore` so the GitHub-Actions deployment no longer
+  copies the repository's Git metadata directory into the wp.org SVN.
+  The 1.3.2 release accidentally shipped a `trunk/.git/` and
+  `tags/1.3.2/.git/`; both have been removed from SVN.
+
 ## [1.3.2] — 2026-05-17
 
 ### Changed
