@@ -86,8 +86,8 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			);
 
 			add_menu_page(
-				__( 'ReportedIP Hive', 'reportedip-hive' ),
-				__( 'ReportedIP Hive', 'reportedip-hive' ),
+				__( 'ReportedIP Hive Light', 'reportedip-hive' ),
+				__( 'ReportedIP Hive Light', 'reportedip-hive' ),
 				'manage_options',
 				self::MENU_SLUG,
 				array( $this, 'render_dashboard_page' ),
@@ -386,7 +386,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			$mode  = (string) get_option( 'reportedip_hive_operation_mode', 'local' );
 			$quota = $this->api_client->get_quota_status();
 
-			$this->render_page_open( __( 'ReportedIP Hive', 'reportedip-hive' ), __( 'Dashboard', 'reportedip-hive' ) );
+			$this->render_page_open( __( 'ReportedIP Hive Light', 'reportedip-hive' ), __( 'Dashboard', 'reportedip-hive' ) );
 			$this->render_inline_notices();
 			echo '<div class="rip-content">';
 
@@ -549,7 +549,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				$current_tab = 'connection';
 			}
 
-			$this->render_page_open( __( 'ReportedIP Hive', 'reportedip-hive' ), __( 'Brute-force protection for WordPress logins', 'reportedip-hive' ) );
+			$this->render_page_open( __( 'ReportedIP Hive Light', 'reportedip-hive' ), __( 'Brute-force protection for WordPress logins', 'reportedip-hive' ) );
 			$this->render_inline_notices();
 			$this->render_tabs( $tabs, $current_tab );
 
@@ -596,7 +596,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			$table = new ReportedIP_Hive_Blocked_IPs_Table( $this->database );
 			$table->prepare_items();
 
-			$this->render_page_open( __( 'ReportedIP Hive', 'reportedip-hive' ), __( 'Blocked IP addresses', 'reportedip-hive' ) );
+			$this->render_page_open( __( 'ReportedIP Hive Light', 'reportedip-hive' ), __( 'Blocked IP addresses', 'reportedip-hive' ) );
 			$this->render_inline_notices();
 			echo '<div class="rip-content">';
 
@@ -643,7 +643,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			$table = new ReportedIP_Hive_Whitelist_Table( $this->database );
 			$table->prepare_items();
 
-			$this->render_page_open( __( 'ReportedIP Hive', 'reportedip-hive' ), __( 'IP whitelist', 'reportedip-hive' ) );
+			$this->render_page_open( __( 'ReportedIP Hive Light', 'reportedip-hive' ), __( 'IP whitelist', 'reportedip-hive' ) );
 			$this->render_inline_notices();
 
 			echo '<div class="rip-content">';

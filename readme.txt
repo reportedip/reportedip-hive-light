@@ -4,7 +4,7 @@ Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Lightweight brute-force login protection with optional community-powered IP repu
 
 == Description ==
 
-ReportedIP Hive protects WordPress logins against brute-force and password-spray attacks. It is intentionally focused: a per-IP attempt counter, a progressive block ladder, and an optional community lookup. No bloat, no dashboards, no upsell.
+ReportedIP Hive Light protects WordPress logins against brute-force and password-spray attacks. It is intentionally focused: a per-IP attempt counter, a progressive block ladder, and an optional community lookup. No bloat, no dashboards, no upsell.
 
 **Two operating modes**
 
@@ -43,7 +43,7 @@ A free Community Access Key is available at reportedip.de. The plugin works with
 
 1. Upload the `reportedip-hive` folder to `/wp-content/plugins/`, or install via *Plugins → Add New*.
 2. Activate the plugin from the WordPress *Plugins* screen.
-3. Go to *ReportedIP Hive → Settings* and review the Connection / Protection / Privacy tabs.
+3. Go to *ReportedIP Hive Light → Settings* and review the Connection / Protection / Privacy tabs.
 
 The plugin is functional out of the box in Local Shield mode — no configuration required.
 
@@ -63,7 +63,7 @@ It might, if you fail logins repeatedly from your own IP. To recover, either wai
 
 = How do I unblock my own IP from the admin UI? =
 
-Visit *ReportedIP Hive → Blocked IPs*, select the row, and choose "Unblock selected" from the bulk actions menu.
+Visit *ReportedIP Hive Light → Blocked IPs*, select the row, and choose "Unblock selected" from the bulk actions menu.
 
 = What data does the plugin send to reportedip.de? =
 
@@ -199,7 +199,7 @@ visible at *Plugins → Plugin File Editor* once the plugin is installed.
 
 == Disclaimer ==
 
-ReportedIP Hive is provided "as is", without warranty of any kind, express or
+ReportedIP Hive Light is provided "as is", without warranty of any kind, express or
 implied, including but not limited to warranties of merchantability, fitness
 for a particular purpose, and non-infringement. The author shall not be liable
 for any claim, damages, or other liability arising from the use of this
@@ -221,6 +221,17 @@ in network security — typically applies) and for updating their own privacy
 policy accordingly.
 
 == Changelog ==
+
+= 1.3.2 =
+
+* Rename the user-facing plugin title to **ReportedIP Hive Light** in the
+  WordPress plugin listing, the wp.org listing, the admin menu, the setup
+  wizard, the welcome notice, and the privacy-policy suggestion. Plugin
+  slug, text domain, class prefix, option keys and database tables are
+  unchanged — display-name only, no migration.
+* Add a GitHub source-code link to the `Service provider` section of the
+  readme and convert the existing reportedip.de URLs to Markdown links so
+  the wp.org renderer turns them into clickable anchors.
 
 = 1.3.1 =
 
@@ -272,6 +283,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Renames the user-facing plugin title to ReportedIP Hive Light. Slug, text domain, options and database tables are unchanged — no migration required.
 
 = 1.3.1 =
 Removes the DONOTCACHE* defines from the block-response path and fixes three legal-notice URLs in the readme.

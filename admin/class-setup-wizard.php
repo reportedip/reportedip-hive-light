@@ -51,7 +51,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 		public function register_hidden_page(): void {
 			add_submenu_page(
 				'',
-				__( 'ReportedIP Hive Setup', 'reportedip-hive' ),
+				__( 'ReportedIP Hive Light Setup', 'reportedip-hive' ),
 				__( 'Setup', 'reportedip-hive' ),
 				'manage_options',
 				self::PAGE_SLUG,
@@ -192,7 +192,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 			<head>
 				<meta charset="<?php bloginfo( 'charset' ); ?>" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<title><?php esc_html_e( 'ReportedIP Hive Setup', 'reportedip-hive' ); ?></title>
+				<title><?php esc_html_e( 'ReportedIP Hive Light Setup', 'reportedip-hive' ); ?></title>
 				<?php wp_print_styles(); ?>
 			</head>
 			<body class="rip-wizard-page">
@@ -200,7 +200,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 					<header class="rip-wizard__header">
 						<div class="rip-wizard__brand">
 							<div class="rip-wizard__logo"><?php echo wp_kses( ReportedIP_Hive::get_logo_svg(), ReportedIP_Hive::get_allowed_svg_tags() ); ?></div>
-							<h1 class="rip-wizard__title">ReportedIP Hive</h1>
+							<h1 class="rip-wizard__title">ReportedIP Hive Light</h1>
 						</div>
 						<form method="post" class="rip-wizard__skip-form">
 							<?php wp_nonce_field( 'reportedip_hive_wizard', 'reportedip_hive_wizard_nonce' ); ?>
@@ -260,9 +260,9 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 			?>
 			<div class="rip-card">
 				<div class="rip-card__body">
-					<h2><?php esc_html_e( 'Welcome to ReportedIP Hive', 'reportedip-hive' ); ?></h2>
+					<h2><?php esc_html_e( 'Welcome to ReportedIP Hive Light', 'reportedip-hive' ); ?></h2>
 					<p><?php esc_html_e( 'This short setup configures the brute-force counter and lets you choose whether the plugin should also consult the reportedip.de community database during login attempts.', 'reportedip-hive' ); ?></p>
-					<p><?php esc_html_e( 'You can change everything later under Settings → ReportedIP Hive.', 'reportedip-hive' ); ?></p>
+					<p><?php esc_html_e( 'You can change everything later under Settings → ReportedIP Hive Light.', 'reportedip-hive' ); ?></p>
 				</div>
 				<div class="rip-card__footer">
 					<form method="post">
@@ -380,7 +380,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 			<div class="rip-card">
 				<div class="rip-card__body">
 					<h2><?php esc_html_e( 'You are protected.', 'reportedip-hive' ); ?></h2>
-					<p><?php esc_html_e( 'ReportedIP Hive is active and listening to login attempts. Visit Settings → ReportedIP Hive any time to fine-tune thresholds, manage the whitelist, or review blocked IPs.', 'reportedip-hive' ); ?></p>
+					<p><?php esc_html_e( 'ReportedIP Hive Light is active and listening to login attempts. Visit Settings → ReportedIP Hive Light any time to fine-tune thresholds, manage the whitelist, or review blocked IPs.', 'reportedip-hive' ); ?></p>
 					<ul class="rip-wizard__next-list">
 						<li><?php esc_html_e( 'Try a wrong-password login a few times to see the protection trigger.', 'reportedip-hive' ); ?></li>
 						<li><?php esc_html_e( 'Whitelist your office IP under Whitelist before any security drills.', 'reportedip-hive' ); ?></li>

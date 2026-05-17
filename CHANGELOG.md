@@ -1,8 +1,22 @@
 # Changelog
 
-All notable changes to ReportedIP Hive are documented in this file. Format
+All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.3.2] — 2026-05-17
+
+### Changed
+
+- Renamed the user-facing plugin title to **ReportedIP Hive Light** across the
+  WordPress plugin listing, the wp.org listing, the admin menu, the setup
+  wizard, the welcome notice, and the privacy-policy suggestion. The plugin
+  slug (`reportedip-hive`), text domain, class prefix, option keys, and
+  database tables are unchanged — this is a display-name change only and
+  carries no migration.
+- Added a GitHub source-code link to the readme `Service provider` section
+  and converted the existing reportedip.de URLs to Markdown links so the
+  wp.org renderer turns them into clickable anchors.
 
 ## [1.3.1] — 2026-05-12
 

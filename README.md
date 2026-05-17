@@ -1,4 +1,4 @@
-# ReportedIP Hive
+# ReportedIP Hive Light
 
 Lightweight brute-force login protection for WordPress, with optional
 community-powered IP reputation checks via reportedip.de.
@@ -27,9 +27,9 @@ listing.
 
 ## Install
 
-From wordpress.org (*Plugins → Add New → search "ReportedIP Hive"*) or by
+From wordpress.org (*Plugins → Add New → search "ReportedIP Hive Light"*) or by
 uploading the ZIP from the latest GitHub release. Activate from the *Plugins*
-screen, then visit *ReportedIP Hive → Settings*.
+screen, then visit *ReportedIP Hive Light → Settings*.
 
 ## Development
 
