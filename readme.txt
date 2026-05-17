@@ -1,4 +1,4 @@
-=== ReportedIP Hive ===
+=== ReportedIP Hive Light ===
 Contributors: reportedip
 Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       ReportedIP Hive
+ * Plugin Name:       ReportedIP Hive Light
  * Plugin URI:        https://wordpress.org/plugins/reportedip-hive/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
  * Version:           1.3.1
