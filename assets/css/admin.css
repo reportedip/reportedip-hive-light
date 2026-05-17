@@ -1,0 +1,50 @@
+/**
+ * ReportedIP Hive — admin overrides on top of design-system.css.
+ *
+ * @package   ReportedIP_Hive
+ * @author    Patrick Schlesinger <1@reportedip.de>
+ * @copyright 2026 Patrick Schlesinger
+ * @license   GPL-2.0-or-later
+ * @since     1.0.0
+ */
+
+.rip-wrap details {
+    background: var(--rip-gray-50);
+    border: 1px solid var(--rip-gray-200);
+    border-radius: var(--rip-radius-sm);
+    padding: var(--rip-space-3);
+}
+
+.rip-wrap details > summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--rip-gray-700);
+}
+
+.rip-wrap details[open] {
+    background: #fff;
+}
+
+.rip-wrap fieldset > .rip-form-group {
+    border: 1px solid transparent;
+    padding: var(--rip-space-3);
+    border-radius: var(--rip-radius-sm);
+}
+
+.rip-wrap fieldset > .rip-form-group:hover {
+    border-color: var(--rip-gray-200);
+    background: var(--rip-gray-50);
+}
+
+#rip-test-result {
+    font-size: var(--rip-text-sm);
+}
+
+#rip-test-result.is-success { color: #047857; }
+#rip-test-result.is-error   { color: #991b1b; }
+#rip-test-result.is-pending { color: var(--rip-gray-500); }
+
+.rip-wrap .submit {
+    margin-top: var(--rip-space-2);
+    padding: 0;
+}

@@ -1,0 +1,153 @@
+/**
+ * ReportedIP Hive — setup wizard styles (full-screen, light onboarding).
+ *
+ * @package   ReportedIP_Hive
+ * @author    Patrick Schlesinger <1@reportedip.de>
+ * @copyright 2026 Patrick Schlesinger
+ * @license   GPL-2.0-or-later
+ * @since     1.1.0
+ */
+
+body.rip-wizard-page {
+    background: linear-gradient(135deg, var(--rip-gray-50), #fff);
+    margin: 0;
+    padding: 0;
+    font-family: var(--rip-font-sans);
+    color: var(--rip-gray-800);
+    min-height: 100vh;
+}
+
+.rip-wizard {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--rip-space-8) var(--rip-space-4);
+}
+
+.rip-wizard__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rip-space-4);
+    margin-bottom: var(--rip-space-6);
+    flex-wrap: wrap;
+}
+
+.rip-wizard__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--rip-space-3);
+}
+
+.rip-wizard__logo {
+    width: 40px;
+    height: 40px;
+    color: var(--rip-primary);
+}
+
+.rip-wizard__logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.rip-wizard__title {
+    margin: 0;
+    font-size: var(--rip-text-xl);
+    font-weight: 600;
+    color: var(--rip-gray-900);
+}
+
+.rip-wizard__skip-form {
+    margin: 0;
+}
+
+.rip-wizard__steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--rip-space-6);
+    background: #fff;
+    border: 1px solid var(--rip-gray-200);
+    border-radius: var(--rip-radius);
+    padding: var(--rip-space-4);
+    box-shadow: var(--rip-shadow-sm);
+}
+
+.rip-wizard__step {
+    display: flex;
+    align-items: center;
+    gap: var(--rip-space-2);
+    flex: 1;
+    color: var(--rip-gray-500);
+    font-size: var(--rip-text-sm);
+}
+
+.rip-wizard__step:not(:last-child)::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--rip-gray-200);
+    margin-left: var(--rip-space-2);
+}
+
+.rip-wizard__step-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--rip-gray-100);
+    color: var(--rip-gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: var(--rip-text-xs);
+    flex-shrink: 0;
+}
+
+.rip-wizard__step--active .rip-wizard__step-circle {
+    background: var(--rip-primary);
+    color: #fff;
+}
+
+.rip-wizard__step--done .rip-wizard__step-circle {
+    background: var(--rip-success);
+    color: #fff;
+}
+
+.rip-wizard__step--active,
+.rip-wizard__step--done {
+    color: var(--rip-gray-800);
+}
+
+.rip-wizard__step-label {
+    font-weight: 500;
+}
+
+.rip-wizard__content h2 {
+    margin: 0 0 var(--rip-space-3);
+    font-size: var(--rip-text-2xl);
+    color: var(--rip-gray-900);
+}
+
+.rip-wizard__content p {
+    margin: 0 0 var(--rip-space-3);
+    color: var(--rip-gray-700);
+    line-height: 1.6;
+}
+
+.rip-wizard__next-list {
+    margin: 0;
+    padding-left: var(--rip-space-5);
+    color: var(--rip-gray-700);
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .rip-wizard__steps {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--rip-space-2);
+    }
+    .rip-wizard__step::after {
+        display: none;
+    }
+}
