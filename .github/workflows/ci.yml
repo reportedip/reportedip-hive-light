@@ -50,8 +50,9 @@ jobs:
     name: PHPUnit
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        php: ["8.1", "8.2", "8.3"]
+        php: ["8.1", "8.2", "8.3", "8.4", "8.5"]
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
@@ -59,7 +60,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: composer
-      - run: composer install --no-progress --prefer-dist
+      - run: composer install --no-progress --prefer-dist --ignore-platform-req=php+
       - run: vendor/bin/phpunit --testsuite unit --no-coverage
 
   plugin-check:
