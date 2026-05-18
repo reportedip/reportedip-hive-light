@@ -4,7 +4,7 @@ Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -222,6 +222,23 @@ policy accordingly.
 
 == Changelog ==
 
+= 1.3.4 =
+
+* Restore the design-system CSS frame on the Settings, Blocked IPs and
+  Whitelist sub-pages. The 1.3.2 display rename changed the WordPress
+  submenu hook suffix from `reportedip-hive_page_*` to
+  `reportedip-hive-light_page_*`, but the enqueue gate still matched the
+  old prefix and silently skipped the asset enqueue. Hook suffixes are
+  now captured from the menu-API return values so the gate stays
+  correct regardless of the menu title.
+* Stop the API report queue from filling with duplicates during a
+  sustained brute-force. `wp_login_failed` now short-circuits when the
+  source IP is already blocked, and `queue_api_report` deduplicates
+  against any open (`pending` or `processing`) report for the same IP.
+  One incident yields exactly one outbound community report instead of
+  one per retry; the block-escalation ladder no longer steps on every
+  attempt against an already-locked door.
+
 = 1.3.3 =
 
 * Add `.git` to `.distignore` so the GitHub-Actions deployment no longer
@@ -290,6 +307,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+Bug fixes: restores the design-system header/footer on the Settings, Blocked IPs and Whitelist sub-pages (regression from 1.3.2) and stops the API report queue from filling with duplicates during a sustained brute-force.
 
 = 1.3.3 =
 Hygiene fix: stops the GitHub-Actions deployment from copying the `.git` directory into the wp.org SVN. No functional changes.

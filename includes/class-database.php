@@ -582,7 +582,10 @@ if ( ! class_exists( 'ReportedIP_Hive_Database' ) ) {
 		}
 
 		/**
-		 * Append a queued API report (status=pending).
+		 * Append a queued API report (status=pending). No-op when an open
+		 * report (pending or processing) already exists for this IP — a
+		 * sustained brute-force on a single IP must yield exactly one
+		 * outbound report per incident, not one per attempt.
 		 *
 		 * @param string $ip_address    IPv4/v6 string.
 		 * @param string $category_ids  Comma-separated category IDs.
@@ -592,6 +595,18 @@ if ( ! class_exists( 'ReportedIP_Hive_Database' ) ) {
 		 */
 		public function queue_api_report( string $ip_address, string $category_ids, string $comment = '' ): void {
 			global $wpdb;
+
+			$existing = $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT id FROM {$wpdb->prefix}reportedip_hive_api_queue
+					WHERE ip_address = %s AND status IN ('pending', 'processing')
+					LIMIT 1",
+					$ip_address
+				)
+			);
+			if ( null !== $existing ) {
+				return;
+			}
 
 			$wpdb->insert(
 				$wpdb->prefix . 'reportedip_hive_api_queue',

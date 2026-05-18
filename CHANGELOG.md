@@ -4,6 +4,25 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.4] — 2026-05-18
+
+### Fixed
+
+- Restore the design-system CSS frame on the Settings, Blocked IPs and
+  Whitelist sub-pages. The 1.3.2 display rename changed the WordPress
+  submenu hook suffix from `reportedip-hive_page_*` to
+  `reportedip-hive-light_page_*`, but the asset-enqueue gate still
+  matched the old prefix and silently dropped the enqueue. Hook
+  suffixes are now captured from the menu-API return values so the
+  gate stays correct regardless of the menu title.
+- Stop the API report queue from filling with duplicates during a
+  sustained brute-force. `wp_login_failed` now short-circuits when the
+  source IP is already blocked, and `queue_api_report` deduplicates
+  against any open (`pending` or `processing`) report for the same IP.
+  One incident yields exactly one outbound community report instead of
+  one per retry; the block-escalation ladder no longer steps on every
+  attempt against an already-locked door.
+
 ## [1.3.3] — 2026-05-17
 
 ### Fixed

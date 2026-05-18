@@ -73,6 +73,12 @@ if ( ! class_exists( 'ReportedIP_Hive_Security_Monitor' ) ) {
 		 * Hook callback: `wp_login_failed` — record the attempt and dispatch
 		 * thresholds when exceeded.
 		 *
+		 * Already-blocked IPs short-circuit immediately. The threshold has
+		 * already been dispatched for this attack window; continuing to
+		 * `track_attempt` would keep climbing the block-escalation ladder
+		 * and queue duplicate community reports while the attacker simply
+		 * retries against the locked door.
+		 *
 		 * @param string $username Submitted username (any string).
 		 * @return void
 		 * @since  1.0.0
@@ -84,6 +90,10 @@ if ( ! class_exists( 'ReportedIP_Hive_Security_Monitor' ) ) {
 			}
 
 			if ( $this->ip_manager->is_whitelisted( $ip ) ) {
+				return;
+			}
+
+			if ( $this->ip_manager->is_blocked( $ip ) ) {
 				return;
 			}
 

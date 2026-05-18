@@ -54,6 +54,18 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 		private ReportedIP_Hive_API $api_client;
 
 		/**
+		 * Hook suffixes returned by add_menu_page / add_submenu_page.
+		 *
+		 * Captured during admin_menu so admin_enqueue_scripts can gate on the
+		 * actual hook suffixes WordPress assigned — which depend on the
+		 * sanitized menu title, not on the menu slug, and therefore drift
+		 * whenever the display name changes.
+		 *
+		 * @var string[]
+		 */
+		private array $page_hooks = array();
+
+		/**
 		 * Constructor.
 		 *
 		 * @param ReportedIP_Hive_Database $database   Persistence service.
@@ -85,7 +97,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#a7aaad"><path d="M10 1L3 4v5c0 4.6 3.2 8.9 7 10 3.8-1.1 7-5.4 7-10V4l-7-3z"/></svg>'
 			);
 
-			add_menu_page(
+			$this->page_hooks[] = add_menu_page(
 				__( 'ReportedIP Hive Light', 'reportedip-hive' ),
 				__( 'ReportedIP Hive Light', 'reportedip-hive' ),
 				'manage_options',
@@ -95,7 +107,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				75
 			);
 
-			add_submenu_page(
+			$this->page_hooks[] = add_submenu_page(
 				self::MENU_SLUG,
 				__( 'Dashboard', 'reportedip-hive' ),
 				__( 'Dashboard', 'reportedip-hive' ),
@@ -104,7 +116,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				array( $this, 'render_dashboard_page' )
 			);
 
-			add_submenu_page(
+			$this->page_hooks[] = add_submenu_page(
 				self::MENU_SLUG,
 				__( 'Settings', 'reportedip-hive' ),
 				__( 'Settings', 'reportedip-hive' ),
@@ -113,7 +125,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				array( $this, 'render_settings_page' )
 			);
 
-			add_submenu_page(
+			$this->page_hooks[] = add_submenu_page(
 				self::MENU_SLUG,
 				__( 'Blocked IPs', 'reportedip-hive' ),
 				__( 'Blocked IPs', 'reportedip-hive' ),
@@ -122,7 +134,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				array( $this, 'render_blocked_page' )
 			);
 
-			add_submenu_page(
+			$this->page_hooks[] = add_submenu_page(
 				self::MENU_SLUG,
 				__( 'Whitelist', 'reportedip-hive' ),
 				__( 'Whitelist', 'reportedip-hive' ),
@@ -130,6 +142,8 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				self::WHITELIST_SLUG,
 				array( $this, 'render_whitelist_page' )
 			);
+
+			$this->page_hooks = array_values( array_filter( $this->page_hooks, 'is_string' ) );
 		}
 
 		/**
@@ -326,14 +340,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 		 * @since  1.0.0
 		 */
 		public function enqueue_assets( string $hook_suffix ): void {
-			$plugin_pages = array(
-				'toplevel_page_' . self::MENU_SLUG,
-				self::MENU_SLUG . '_page_' . self::SETTINGS_SLUG,
-				self::MENU_SLUG . '_page_' . self::BLOCKED_SLUG,
-				self::MENU_SLUG . '_page_' . self::WHITELIST_SLUG,
-			);
-
-			if ( ! in_array( $hook_suffix, $plugin_pages, true ) ) {
+			if ( ! in_array( $hook_suffix, $this->page_hooks, true ) ) {
 				return;
 			}
 
