@@ -4,7 +4,7 @@ Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -221,6 +221,14 @@ in network security — typically applies) and for updating their own privacy
 policy accordingly.
 
 == Changelog ==
+
+= 1.3.5 =
+
+* Add wp.org plugin-directory listing assets: 128x128 + 256x256 icons
+  (static PNG and animated GIF with a heartbeat-pulse loop), 1544x500
+  + 772x250 hero banners, and five 1280x720 screenshots covering the
+  Connection, Protection and Privacy tabs, the Blocked IPs list view
+  and the empty state. No code change in this release.
 
 = 1.3.4 =
 

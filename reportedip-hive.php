@@ -3,7 +3,7 @@
  * Plugin Name:       ReportedIP Hive Light
  * Plugin URI:        https://wordpress.org/plugins/reportedip-hive/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
- * Version:           1.3.4
+ * Version:           1.3.5
  * Requires at least: 6.0
  * Tested up to:      6.9
  * Requires PHP:      8.1
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.4' );
+defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.5' );
 defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.1.0' );
 defined( 'REPORTEDIP_HIVE_PLUGIN_FILE' ) || define( 'REPORTEDIP_HIVE_PLUGIN_FILE', __FILE__ );
 defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) || define( 'REPORTEDIP_HIVE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

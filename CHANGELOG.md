@@ -4,6 +4,18 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.5] — 2026-05-20
+
+### Added
+
+- wp.org plugin-directory listing assets: 128x128 + 256x256 icons (static
+  PNG + animated GIF with a heartbeat-pulse loop), 1544x500 + 772x250
+  hero banners, and five 1280x720 screenshots covering the Connection,
+  Protection and Privacy tabs, the Blocked IPs list view, and the empty
+  state. Replaces the previous placeholder folder. Assets are produced
+  deterministically by `scripts/generate-wporg-assets.php` (PHP-GD; no
+  external tooling required) and never hand-edited.
+
 ## [1.3.4] — 2026-05-18
 
 ### Fixed
