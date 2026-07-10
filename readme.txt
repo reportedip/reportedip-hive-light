@@ -1,10 +1,10 @@
 === ReportedIP Hive Light ===
 Contributors: reportedip
 Tags: security, login, brute-force, ip-blocking, firewall
-Requires at least: 6.0
-Tested up to: 6.9
+Requires at least: 6.1
+Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Lightweight brute-force login protection with optional community-powered IP repu
 
 == Description ==
 
-ReportedIP Hive Light protects WordPress logins against brute-force and password-spray attacks. It is intentionally focused: a per-IP attempt counter, a progressive block ladder, and an optional community lookup. No bloat, no dashboards, no upsell.
+ReportedIP Hive Light protects WordPress logins against brute-force and password-spray attacks. It is intentionally focused: a per-IP attempt counter, a progressive block ladder, and an optional community lookup. No bloat, no dashboards, no nag screens.
 
 **Two operating modes**
 
@@ -39,6 +39,10 @@ ReportedIP Hive Light protects WordPress logins against brute-force and password
 
 A free Community Access Key is available at reportedip.de. The plugin works without one in Local Shield mode.
 
+**Looking for more? ReportedIP Hive Full Edition and Hive PRO**
+
+Hive Light is complete on its own and stays free — nothing in this plugin is locked or crippled. If you need more than login protection, the separate [Full Edition](https://reportedip.de/products/wordpress-plugin/) — also free and GPL-2.0, distributed via GitHub — adds 16 attack sensors including a Web Application Firewall, four 2FA methods (authenticator app, e-mail, SMS, passkeys) and multisite support. The optional Hive PRO subscription on top of the Full Edition connects your sites to a managed, EU-hosted 2FA relay for SMS and e-mail codes (no Twilio account needed) and covers three domains with one licence.
+
 == Installation ==
 
 1. Upload the `reportedip-hive` folder to `/wp-content/plugins/`, or install via *Plugins → Add New*.
@@ -51,7 +55,7 @@ The plugin is functional out of the box in Local Shield mode — no configuratio
 
 = How do I get a Community Access Key? =
 
-Register at reportedip.de. The Community Access Key tier is free.
+Register at reportedip.de. The Community Access Key is free.
 
 = Can I use the plugin without an access key? =
 
@@ -80,6 +84,10 @@ Yes. WooCommerce uses the standard `wp_login_failed` action, which the plugin li
 = My site is behind Cloudflare. Are real IPs detected? =
 
 Set *Trusted Proxy Header* in *Settings → Connection* to `CF-Connecting-IP`. Only enable this when your reverse proxy reliably overrides the header on every incoming request — otherwise the header can be spoofed.
+
+= Is there a Pro version? =
+
+Hive Light itself has no paid tier — everything you see is free and fully functional. There is a separate Full Edition (free, GPL-2.0, on GitHub) with a WAF, 2FA and multisite support, and an optional Hive PRO subscription that adds a managed EU 2FA relay and multi-domain cover. See https://reportedip.de/products/wordpress-plugin/ for the comparison.
 
 == Screenshots ==
 
@@ -222,6 +230,19 @@ policy accordingly.
 
 == Changelog ==
 
+= 1.3.6 =
+
+* Update the plugin homepage to point at the product page on
+  reportedip.de instead of the wp.org listing itself.
+* Document the relationship to the free Full Edition and the optional
+  Hive PRO subscription in the readme description and FAQ.
+* Add a Full Edition & PRO link to the plugin's row in the Plugins list
+  and a static footer card on the plugin's own admin pages. No
+  protection-logic changes.
+* Declare compatibility with WordPress 7.0 and raise the minimum
+  supported version to 6.1 (required by the `wp_cache_flush_group()`
+  call in the uninstall routine).
+
 = 1.3.5 =
 
 * Add wp.org plugin-directory listing assets: 128x128 + 256x256 icons
@@ -315,6 +336,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.6 =
+Updated plugin homepage; readme and admin pages now document the relationship to the Full Edition and Hive PRO. No functional changes.
 
 = 1.3.4 =
 Bug fixes: restores the design-system header/footer on the Settings, Blocked IPs and Whitelist sub-pages (regression from 1.3.2) and stops the API report queue from filling with duplicates during a sustained brute-force.

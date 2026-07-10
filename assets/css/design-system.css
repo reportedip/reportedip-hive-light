@@ -4,7 +4,8 @@
  * Tokens, base layout primitives, and the components actually used by the
  * Light edition. The full upstream design system contains tier badges,
  * pricing cards, dashboard charts and other components that are deliberately
- * excluded here per the wordpress.org submission's no-upsell policy.
+ * excluded here to keep this edition lean and in line with the
+ * wordpress.org guidelines.
  *
  * @package   ReportedIP_Hive
  * @author    Patrick Schlesinger <1@reportedip.de>

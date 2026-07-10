@@ -4,6 +4,24 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.6] — 2026-07-10
+
+### Changed
+
+- Update the plugin homepage (`Plugin URI`) to point at the product page
+  on reportedip.de instead of the wp.org listing itself.
+- Document the relationship to the free Full Edition and the optional
+  Hive PRO subscription in the readme description, a new FAQ entry, and
+  the GitHub README.
+- Add a Full Edition & PRO link to the plugin's row in the Plugins list
+  table and a static footer card on the plugin's own admin pages
+  (Dashboard, Settings, Blocked IPs, Whitelist). No notices, no
+  tracking, no protection-logic changes.
+- Declare compatibility with WordPress 7.0 and raise the minimum
+  supported version to 6.1 — `uninstall.php` calls
+  `wp_cache_flush_group()`, which requires 6.1, and Plugin Check now
+  enforces the declared minimum.
+
 ## [1.3.5] — 2026-05-20
 
 ### Added

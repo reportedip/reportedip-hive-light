@@ -19,10 +19,21 @@ listing.
 - WordPress Coding Standards, PHPStan level 5, WordPress.org Plugin Check —
   all green in CI
 
+## Full Edition & PRO
+
+Hive Light is complete on its own and stays free. If you need more than
+login protection, the separate
+[Full Edition](https://reportedip.de/products/wordpress-plugin/) — also free
+and GPL-2.0, distributed via GitHub — adds 16 attack sensors including a Web
+Application Firewall, four 2FA methods (authenticator app, e-mail, SMS,
+passkeys) and multisite support. The optional Hive PRO subscription on top of
+the Full Edition connects your sites to a managed, EU-hosted 2FA relay for
+SMS and e-mail codes and covers three domains with one licence.
+
 ## Requirements
 
 - PHP 8.1+
-- WordPress 6.0+
+- WordPress 6.1+
 - MySQL/MariaDB with InnoDB
 
 ## Install

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       ReportedIP Hive Light
- * Plugin URI:        https://wordpress.org/plugins/reportedip-hive/
+ * Plugin URI:        https://reportedip.de/products/wordpress-plugin/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
- * Version:           1.3.5
- * Requires at least: 6.0
- * Tested up to:      6.9
+ * Version:           1.3.6
+ * Requires at least: 6.1
+ * Tested up to:      7.0
  * Requires PHP:      8.1
  * Author:            Patrick Schlesinger
  * Author URI:        https://reportedip.de
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.5' );
+defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.6' );
 defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.1.0' );
 defined( 'REPORTEDIP_HIVE_PLUGIN_FILE' ) || define( 'REPORTEDIP_HIVE_PLUGIN_FILE', __FILE__ );
 defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) || define( 'REPORTEDIP_HIVE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -155,9 +155,33 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'maybe_enqueue_welcome_styles' ) );
 			add_action( 'admin_notices', array( $this, 'maybe_show_welcome_notice' ) );
 			add_action( 'wp_ajax_reportedip_hive_dismiss_welcome', array( $this, 'ajax_dismiss_welcome' ) );
+			add_filter( 'plugin_row_meta', array( $this, 'add_plugin_row_meta' ), 10, 2 );
 
 			add_action( 'reportedip_hive_process_queue', array( $this->cron_handler, 'run_queue_worker' ) );
 			add_action( 'reportedip_hive_cleanup', array( $this->cron_handler, 'run_cleanup' ) );
+		}
+
+		/**
+		 * Append a Full Edition & PRO link to the plugin's own row in the
+		 * Plugins list table.
+		 *
+		 * @param array<int, string> $plugin_meta Row meta links.
+		 * @param string             $plugin_file Plugin file path relative to the plugins directory.
+		 * @return array<int, string> Filtered row meta links.
+		 * @since  1.3.6
+		 */
+		public function add_plugin_row_meta( array $plugin_meta, string $plugin_file ): array {
+			if ( REPORTEDIP_HIVE_PLUGIN_BASENAME !== $plugin_file ) {
+				return $plugin_meta;
+			}
+
+			$plugin_meta[] = sprintf(
+				'<a href="%1$s" target="_blank" rel="noopener">%2$s</a>',
+				esc_url( 'https://reportedip.de/products/wordpress-plugin/' ),
+				esc_html__( 'Full Edition & PRO', 'reportedip-hive' )
+			);
+
+			return $plugin_meta;
 		}
 
 		/**

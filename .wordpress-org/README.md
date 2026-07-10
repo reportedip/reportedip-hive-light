@@ -24,6 +24,7 @@ Captions live in `readme.txt` under `== Screenshots ==`.
 ## Design rules
 
 - Use only the `--rip-primary` indigo (#4F46E5) and the design-system tokens.
-- No "Pro", "Premium", "Free Edition", or pricing visuals.
+- No "Pro", "Premium", "Free Edition", or pricing visuals in any listing
+  graphic — edition mentions live in the readme and admin footer only.
 - Use RFC 5737 demonstration IPs (`192.0.2.x`, `198.51.100.x`) in any
   IP-address screenshots — never real customer data.

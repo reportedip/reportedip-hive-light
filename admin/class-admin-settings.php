@@ -531,6 +531,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			<?php
 
 			echo '</div>';
+			$this->render_edition_banner();
 			$this->render_trust_badges();
 			$this->render_page_close();
 		}
@@ -585,6 +586,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			echo '</form>';
 			echo '</div>';
 
+			$this->render_edition_banner();
 			$this->render_trust_badges();
 			$this->render_page_close();
 		}
@@ -617,6 +619,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			}
 
 			echo '</div>';
+			$this->render_edition_banner();
 			$this->render_trust_badges();
 			$this->render_page_close();
 		}
@@ -707,6 +710,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			<?php
 
 			echo '</div>';
+			$this->render_edition_banner();
 			$this->render_trust_badges();
 			$this->render_page_close();
 		}
@@ -1064,6 +1068,28 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 		 */
 		private function render_hidden_tab_field( string $tab ): void {
 			printf( '<input type="hidden" name="_wp_http_referer" value="%s" />', esc_attr( admin_url( 'admin.php?page=' . self::SETTINGS_SLUG . '&tab=' . $tab ) ) );
+		}
+
+		/**
+		 * Render the static Full Edition & PRO card shown once below the page
+		 * content on the plugin's own admin screens. Deliberately restrained
+		 * per the wordpress.org guidelines: no notice, no dismiss logic, no
+		 * tracking parameters.
+		 *
+		 * @return void
+		 * @since  1.3.6
+		 */
+		private function render_edition_banner(): void {
+			?>
+			<div class="rip-card">
+				<div class="rip-card__body">
+					<p><?php esc_html_e( 'Hive Light is complete and stays free. Need a Web Application Firewall, two-factor authentication or multisite support? The free Full Edition and the optional Hive PRO subscription build on the same engine.', 'reportedip-hive' ); ?></p>
+					<div>
+						<a class="rip-button rip-button--secondary" href="<?php echo esc_url( 'https://reportedip.de/products/wordpress-plugin/' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'ReportedIP Hive Full Edition & PRO', 'reportedip-hive' ); ?></a>
+					</div>
+				</div>
+			</div>
+			<?php
 		}
 
 		/**
