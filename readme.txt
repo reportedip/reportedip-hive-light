@@ -4,7 +4,7 @@ Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.1
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ ReportedIP Hive Light protects WordPress logins against brute-force and password
 **Two operating modes**
 
 * **Local Shield (default).** Counts failed logins per IP and blocks attackers based on configurable thresholds. The plugin makes zero outbound network requests in this mode — all data stays on your server.
-* **Community Network (optional).** When you enter a free Community Access Key from reportedip.de, the plugin additionally checks the source IP against the reportedip.de community database during login attempts and shares blocked IPs back to the community. Both calls are clearly disclosed in the settings UI.
+* **Community Network (optional).** When you enter a free Community Access Key from reportedip.com, the plugin additionally checks the source IP against the reportedip.com community database during login attempts and shares blocked IPs back to the community. Both calls are clearly disclosed in the settings UI.
 
 **How it works**
 
@@ -37,11 +37,11 @@ ReportedIP Hive Light protects WordPress logins against brute-force and password
 * Filters: `reportedip_hive_is_whitelisted`, `reportedip_hive_get_client_ip`, `reportedip_hive_event_category_map`, `reportedip_hive_api_endpoint`.
 * Actions: `reportedip_hive_log`, `reportedip_hive_ip_blocked`, `reportedip_hive_report_queued`.
 
-A free Community Access Key is available at reportedip.de. The plugin works without one in Local Shield mode.
+A free Community Access Key is available at reportedip.com. The plugin works without one in Local Shield mode.
 
 **Looking for more? ReportedIP Hive Full Edition and Hive PRO**
 
-Hive Light is complete on its own and stays free — nothing in this plugin is locked or crippled. If you need more than login protection, the separate [Full Edition](https://reportedip.de/products/wordpress-plugin/) — also free and GPL-2.0, distributed via GitHub — adds 16 attack sensors including a Web Application Firewall, four 2FA methods (authenticator app, e-mail, SMS, passkeys) and multisite support. The optional Hive PRO subscription on top of the Full Edition connects your sites to a managed, EU-hosted 2FA relay for SMS and e-mail codes (no Twilio account needed) and covers three domains with one licence.
+Hive Light is complete on its own and stays free — nothing in this plugin is locked or crippled. If you need more than login protection, the separate [Full Edition](https://reportedip.com/products/wordpress-plugin/) — also free and GPL-2.0, distributed via GitHub — adds 16 attack sensors including a Web Application Firewall, four 2FA methods (authenticator app, e-mail, SMS, passkeys) and multisite support. The optional Hive PRO subscription on top of the Full Edition connects your sites to a managed, EU-hosted 2FA relay for SMS and e-mail codes (no Twilio account needed) and covers three domains with one licence.
 
 == Installation ==
 
@@ -55,7 +55,7 @@ The plugin is functional out of the box in Local Shield mode — no configuratio
 
 = How do I get a Community Access Key? =
 
-Register at reportedip.de. The Community Access Key is free.
+Register at reportedip.com. The Community Access Key is free.
 
 = Can I use the plugin without an access key? =
 
@@ -69,7 +69,7 @@ It might, if you fail logins repeatedly from your own IP. To recover, either wai
 
 Visit *ReportedIP Hive Light → Blocked IPs*, select the row, and choose "Unblock selected" from the bulk actions menu.
 
-= What data does the plugin send to reportedip.de? =
+= What data does the plugin send to reportedip.com? =
 
 In Community Network mode only: the IP address, a SHA-256 hash of the submitted username (salted with `wp_salt()`), an integer category ID for the event type, and an optional comment. Plain-text usernames, passwords, domains, or contact details are never transmitted. See the "External services" section for full details.
 
@@ -87,7 +87,7 @@ Set *Trusted Proxy Header* in *Settings → Connection* to `CF-Connecting-IP`. O
 
 = Is there a Pro version? =
 
-Hive Light itself has no paid tier — everything you see is free and fully functional. There is a separate Full Edition (free, GPL-2.0, on GitHub) with a WAF, 2FA and multisite support, and an optional Hive PRO subscription that adds a managed EU 2FA relay and multi-domain cover. See https://reportedip.de/products/wordpress-plugin/ for the comparison.
+Hive Light itself has no paid tier — everything you see is free and fully functional. There is a separate Full Edition (free, GPL-2.0, on GitHub) with a WAF, 2FA and multisite support, and an optional Hive PRO subscription that adds a managed EU 2FA relay and multi-domain cover. See https://reportedip.com/products/wordpress-plugin/ for the comparison.
 
 == Screenshots ==
 
@@ -99,7 +99,7 @@ Hive Light itself has no paid tier — everything you see is free and fully func
 
 == External services ==
 
-This plugin can connect to the ReportedIP API at `https://reportedip.de`. All
+This plugin can connect to the ReportedIP API at `https://reportedip.com`. All
 external requests are **opt-in only** — they are made exclusively when (a) a
 "Community Access Key" has been entered in the plugin settings and (b) the
 "Operation Mode" is set to "Community Network". The default mode is "Local
@@ -107,7 +107,7 @@ Shield", which performs zero external requests.
 
 = Endpoint 1: IP-reputation lookup =
 
-* URL: `https://reportedip.de/wp-json/reportedip/v2/check?ip={ip}`
+* URL: `https://reportedip.com/wp-json/reportedip/v2/check?ip={ip}`
 * HTTP verb: GET
 * Auth header: `X-Key: {your-access-key}`
 * Trigger: a login attempt reaches `wp_authenticate_user`
@@ -117,7 +117,7 @@ Shield", which performs zero external requests.
 
 = Endpoint 2: Blocked-IP report =
 
-* URL: `https://reportedip.de/wp-json/reportedip/v2/report`
+* URL: `https://reportedip.com/wp-json/reportedip/v2/report`
 * HTTP verb: POST (JSON body)
 * Auth header: `X-Key: {your-access-key}`
 * Trigger: a brute-force / spray threshold has been exceeded; the report is
@@ -129,7 +129,7 @@ Shield", which performs zero external requests.
 
 = Endpoint 3: Access-key verification =
 
-* URL: `https://reportedip.de/wp-json/reportedip/v2/verify-key`
+* URL: `https://reportedip.com/wp-json/reportedip/v2/verify-key`
 * HTTP verb: GET
 * Auth header: `X-Key: {entered-key}`
 * Trigger: an administrator clicks "Test connection" in the plugin settings
@@ -145,12 +145,12 @@ preventing recipients from recovering the original username.
 = Service provider =
 
 * Operator: Patrick Schlesinger, Germany
-* Service URL: [reportedip.de](https://reportedip.de)
-* Legal notice (Impressum): [reportedip.de/impressum](https://reportedip.de/impressum/)
-* Terms of use: [reportedip.de/nutzungsbedingungen](https://reportedip.de/nutzungsbedingungen/)
-* Privacy policy: [reportedip.de/datenschutzerklaerung](https://reportedip.de/datenschutzerklaerung/)
+* Service URL: [reportedip.com](https://reportedip.com)
+* Legal notice (Impressum): [reportedip.com/impressum](https://reportedip.com/impressum/)
+* Terms of use: [reportedip.com/nutzungsbedingungen](https://reportedip.com/nutzungsbedingungen/)
+* Privacy policy: [reportedip.com/datenschutzerklaerung](https://reportedip.com/datenschutzerklaerung/)
 * Source code: [github.com/reportedip/reportedip-hive-light](https://github.com/reportedip/reportedip-hive-light)
-* Contact: [1@reportedip.de](mailto:1@reportedip.de)
+* Contact: [1@reportedip.com](mailto:1@reportedip.com)
 
 You can switch back to Local Shield mode at any time in *Settings → ReportedIP
 Hive → Connection*. Doing so stops all external traffic immediately.
@@ -192,7 +192,7 @@ visible at *Plugins → Plugin File Editor* once the plugin is installed.
   scripts (`jquery`, `wp-list-table`, etc.) and the plugin only depends
   on WordPress core APIs.
 * The only external HTTP service the plugin can talk to is the
-  `https://reportedip.de/wp-json/reportedip/v2/` API, and only when the
+  `https://reportedip.com/wp-json/reportedip/v2/` API, and only when the
   administrator has explicitly enabled Community Network mode — see
   the "External services" section above for the full data flow.
 
@@ -201,7 +201,7 @@ visible at *Plugins → Plugin File Editor* once the plugin is installed.
 * IP addresses are processed under GDPR Art. 6(1)(f) (legitimate interest in network security).
 * Usernames are stored as a salted SHA-256 hash; plain-text values are never persisted or transmitted.
 * In Local Shield mode (default) no data leaves your server.
-* In Community Network mode the data listed above is sent to reportedip.de.
+* In Community Network mode the data listed above is sent to reportedip.com.
 * Data retention is configurable in *Settings → Privacy*. The default attempt window is 15 minutes; the API queue retention is 7 days.
 * Activate "Delete all data on uninstall" in *Settings → Privacy* to remove all plugin tables and options when the plugin is deleted.
 
@@ -221,7 +221,7 @@ single security measure offers a 100 % guarantee against compromise. You
 remain responsible for the overall security posture of your WordPress site.
 
 The optional Community Network mode forwards data to the third-party service
-operated at https://reportedip.de — see the "External services" section
+operated at https://reportedip.com — see the "External services" section
 above for the full data flow. Site operators that enable Community Network
 mode are responsible for assessing the lawful basis under their applicable
 data-protection regime (in the EU, GDPR Art. 6(1)(f) — legitimate interest
@@ -229,6 +229,16 @@ in network security — typically applies) and for updating their own privacy
 policy accordingly.
 
 == Changelog ==
+
+= 1.3.7 =
+
+* The ReportedIP service has moved from reportedip.de to reportedip.com.
+  All plugin URLs (product page, legal pages, API endpoint default) and
+  the support contact address now point at the new domain.
+* Existing installations that still use the former default API endpoint
+  are migrated automatically on upgrade; custom endpoint values are left
+  untouched. Schema/data migrations now also run on plugin updates, not
+  only on activation.
 
 = 1.3.6 =
 
@@ -336,6 +346,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.7 =
+The ReportedIP service moved to reportedip.com. All URLs and the default API endpoint are updated; installations on the former default endpoint migrate automatically. No protection-logic changes.
 
 = 1.3.6 =
 Updated plugin homepage; readme and admin pages now document the relationship to the Full Edition and Hive PRO. No functional changes.

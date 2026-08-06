@@ -6,7 +6,7 @@
  * Sets `reportedip_hive_wizard_completed` to true on completion or skip.
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -261,7 +261,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 			<div class="rip-card">
 				<div class="rip-card__body">
 					<h2><?php esc_html_e( 'Welcome to ReportedIP Hive Light', 'reportedip-hive' ); ?></h2>
-					<p><?php esc_html_e( 'This short setup configures the brute-force counter and lets you choose whether the plugin should also consult the reportedip.de community database during login attempts.', 'reportedip-hive' ); ?></p>
+					<p><?php esc_html_e( 'This short setup configures the brute-force counter and lets you choose whether the plugin should also consult the reportedip.com community database during login attempts.', 'reportedip-hive' ); ?></p>
 					<p><?php esc_html_e( 'You can change everything later under Settings → ReportedIP Hive Light.', 'reportedip-hive' ); ?></p>
 				</div>
 				<div class="rip-card__footer">
@@ -305,13 +305,13 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 						<label class="rip-form-group">
 							<input type="radio" name="operation_mode" value="community" <?php checked( $mode, 'community' ); ?> />
 							<strong><?php esc_html_e( 'Community Network (optional)', 'reportedip-hive' ); ?></strong>
-							<span class="rip-help-text"><?php esc_html_e( 'Checks IP reputation against the reportedip.de community database during login attempts and shares blocked IPs back. Hashed usernames only — never plaintext.', 'reportedip-hive' ); ?></span>
+							<span class="rip-help-text"><?php esc_html_e( 'Checks IP reputation against the reportedip.com community database during login attempts and shares blocked IPs back. Hashed usernames only — never plaintext.', 'reportedip-hive' ); ?></span>
 						</label>
 
 						<div class="rip-form-group">
 							<label for="rip-wizard-key"><?php esc_html_e( 'Community Access Key (optional)', 'reportedip-hive' ); ?></label>
 							<input type="text" id="rip-wizard-key" name="api_key" value="<?php echo esc_attr( $key ); ?>" class="regular-text" autocomplete="off" />
-							<span class="rip-help-text"><?php esc_html_e( 'Required only for Community Network. A free key is available at reportedip.de.', 'reportedip-hive' ); ?></span>
+							<span class="rip-help-text"><?php esc_html_e( 'Required only for Community Network. A free key is available at reportedip.com.', 'reportedip-hive' ); ?></span>
 						</div>
 					</div>
 					<div class="rip-card__footer">

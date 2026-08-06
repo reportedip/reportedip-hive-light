@@ -1,7 +1,7 @@
 # ReportedIP Hive Light
 
 Lightweight brute-force login protection for WordPress, with optional
-community-powered IP reputation checks via reportedip.de.
+community-powered IP reputation checks via reportedip.com.
 
 This is the public source repository. The user-facing description, FAQ and
 screenshots live in [readme.txt](readme.txt) for the
@@ -23,7 +23,7 @@ listing.
 
 Hive Light is complete on its own and stays free. If you need more than
 login protection, the separate
-[Full Edition](https://reportedip.de/products/wordpress-plugin/) — also free
+[Full Edition](https://reportedip.com/products/wordpress-plugin/) — also free
 and GPL-2.0, distributed via GitHub — adds 16 attack sensors including a Web
 Application Firewall, four 2FA methods (authenticator app, e-mail, SMS,
 passkeys) and multisite support. The optional Hive PRO subscription on top of

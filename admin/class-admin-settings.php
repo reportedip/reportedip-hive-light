@@ -8,7 +8,7 @@
  * `.rip-content` → `.rip-trust-badges`).
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -372,7 +372,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 					'i18n'      => array(
 						'testing' => __( 'Testing connection…', 'reportedip-hive' ),
 						'noKey'   => __( 'Please enter an access key first.', 'reportedip-hive' ),
-						'error'   => __( 'Could not reach reportedip.de. Check your network and try again.', 'reportedip-hive' ),
+						'error'   => __( 'Could not reach reportedip.com. Check your network and try again.', 'reportedip-hive' ),
 					),
 				)
 			);
@@ -770,7 +770,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 		private function render_connection_tab(): void {
 			$mode     = (string) get_option( 'reportedip_hive_operation_mode', 'local' );
 			$key      = (string) get_option( 'reportedip_hive_api_key', '' );
-			$endpoint = (string) get_option( 'reportedip_hive_api_endpoint', 'https://reportedip.de/wp-json/reportedip/v2/' );
+			$endpoint = (string) get_option( 'reportedip_hive_api_endpoint', 'https://reportedip.com/wp-json/reportedip/v2/' );
 			$header   = (string) get_option( 'reportedip_hive_trusted_ip_header', '' );
 
 			$proxy_options = array(
@@ -802,8 +802,8 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 							<div class="rip-alert__content">
 								<p><?php esc_html_e( 'Enabling Community Network mode will:', 'reportedip-hive' ); ?></p>
 								<ul>
-									<li><?php esc_html_e( 'Send blocked IP addresses to reportedip.de when your site detects an attack.', 'reportedip-hive' ); ?></li>
-									<li><?php esc_html_e( 'Query reportedip.de during login attempts to check IP reputation.', 'reportedip-hive' ); ?></li>
+									<li><?php esc_html_e( 'Send blocked IP addresses to reportedip.com when your site detects an attack.', 'reportedip-hive' ); ?></li>
+									<li><?php esc_html_e( 'Query reportedip.com during login attempts to check IP reputation.', 'reportedip-hive' ); ?></li>
 									<li><?php esc_html_e( 'Hash usernames (SHA-256, salted with wp_salt()) before any transmission — plaintext usernames never leave your server.', 'reportedip-hive' ); ?></li>
 									<li><?php esc_html_e( 'Identify your site only via your Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ); ?></li>
 								</ul>
@@ -820,7 +820,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 					<div class="rip-form-group">
 						<label for="reportedip_hive_api_key"><?php esc_html_e( 'Access Key', 'reportedip-hive' ); ?></label>
 						<input type="text" id="reportedip_hive_api_key" name="reportedip_hive_api_key" value="<?php echo esc_attr( $key ); ?>" class="regular-text" autocomplete="off" />
-						<span class="rip-help-text"><?php esc_html_e( 'Need an access key? Visit reportedip.de.', 'reportedip-hive' ); ?></span>
+						<span class="rip-help-text"><?php esc_html_e( 'Need an access key? Visit reportedip.com.', 'reportedip-hive' ); ?></span>
 					</div>
 
 					<div class="rip-form-group">
@@ -977,7 +977,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			<div class="rip-alert rip-alert--info">
 				<div class="rip-alert__content">
 					<h3><?php esc_html_e( 'Privacy notice', 'reportedip-hive' ); ?></h3>
-					<p><?php esc_html_e( 'This plugin processes IP addresses to detect attacks. Username inputs are stored hashed (SHA-256, salted with wp_salt()), never in plaintext. In Local Shield mode, no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.de. See the readme.txt "External services" and "Privacy" sections for full details.', 'reportedip-hive' ); ?></p>
+					<p><?php esc_html_e( 'This plugin processes IP addresses to detect attacks. Username inputs are stored hashed (SHA-256, salted with wp_salt()), never in plaintext. In Local Shield mode, no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.com. See the readme.txt "External services" and "Privacy" sections for full details.', 'reportedip-hive' ); ?></p>
 				</div>
 			</div>
 			<?php
@@ -1085,7 +1085,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 				<div class="rip-card__body">
 					<p><?php esc_html_e( 'Hive Light is complete and stays free. Need a Web Application Firewall, two-factor authentication or multisite support? The free Full Edition and the optional Hive PRO subscription build on the same engine.', 'reportedip-hive' ); ?></p>
 					<div>
-						<a class="rip-button rip-button--secondary" href="<?php echo esc_url( 'https://reportedip.de/products/wordpress-plugin/' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'ReportedIP Hive Full Edition & PRO', 'reportedip-hive' ); ?></a>
+						<a class="rip-button rip-button--secondary" href="<?php echo esc_url( 'https://reportedip.com/products/wordpress-plugin/' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'ReportedIP Hive Full Edition & PRO', 'reportedip-hive' ); ?></a>
 					</div>
 				</div>
 			</div>

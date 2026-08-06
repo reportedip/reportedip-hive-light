@@ -3,7 +3,7 @@
  * Race-safe database layer for attempts, blocked IPs and the API report queue.
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -310,7 +310,8 @@ if ( ! class_exists( 'ReportedIP_Hive_Database' ) ) {
 
 		/**
 		 * Compare the stored schema version against the runtime constant and
-		 * re-run dbDelta if the runtime is newer.
+		 * re-run dbDelta if the runtime is newer. Also applies one-off data
+		 * migrations tied to specific schema versions.
 		 *
 		 * @return void
 		 * @since  1.0.0
@@ -320,7 +321,25 @@ if ( ! class_exists( 'ReportedIP_Hive_Database' ) ) {
 			if ( version_compare( $current, REPORTEDIP_HIVE_DB_VERSION, '>=' ) ) {
 				return;
 			}
+			if ( version_compare( $current, '1.2.0', '<' ) ) {
+				$this->migrate_default_api_endpoint();
+			}
 			$this->install_schema();
+		}
+
+		/**
+		 * Rewrite the stored API endpoint from the retired reportedip.de
+		 * default to the reportedip.com default. Custom endpoints are left
+		 * untouched — only the exact former default value is migrated.
+		 *
+		 * @return void
+		 * @since  1.3.7
+		 */
+		private function migrate_default_api_endpoint(): void {
+			$stored = (string) get_option( 'reportedip_hive_api_endpoint', '' );
+			if ( 'https://reportedip.de/wp-json/reportedip/v2/' === $stored ) {
+				update_option( 'reportedip_hive_api_endpoint', 'https://reportedip.com/wp-json/reportedip/v2/' );
+			}
 		}
 
 		/**

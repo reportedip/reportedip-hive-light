@@ -1,6 +1,6 @@
 <?php
 /**
- * Resilient HTTP client for the reportedip.de API.
+ * Resilient HTTP client for the reportedip.com API.
  *
  * Reputation lookups are synchronous on the login path with a 2 s timeout and
  * fail-open semantics (errors do not block legitimate users). A circuit
@@ -8,7 +8,7 @@
  * 5 minutes. Reports are queued in the database and flushed by a cron worker.
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'ReportedIP_Hive_API' ) ) {
 
 	/**
-	 * HTTP facade for the reportedip.de community API.
+	 * HTTP facade for the reportedip.com community API.
 	 *
 	 * @since 1.0.0
 	 */
@@ -189,7 +189,7 @@ if ( ! class_exists( 'ReportedIP_Hive_API' ) ) {
 					'valid'   => false,
 					'message' => sprintf(
 						/* translators: %s: human-readable error message from wp_remote */
-						__( 'Could not reach reportedip.de: %s', 'reportedip-hive' ),
+						__( 'Could not reach reportedip.com: %s', 'reportedip-hive' ),
 						$response->get_error_message()
 					),
 				);
@@ -334,7 +334,7 @@ if ( ! class_exists( 'ReportedIP_Hive_API' ) ) {
 		 * @since  1.0.0
 		 */
 		private function make_request( string $method, string $endpoint, array $query_params, ?array $body, int $timeout, ?string $api_key = null ) {
-			$base = (string) get_option( 'reportedip_hive_api_endpoint', 'https://reportedip.de/wp-json/reportedip/v2/' );
+			$base = (string) get_option( 'reportedip_hive_api_endpoint', 'https://reportedip.com/wp-json/reportedip/v2/' );
 			/**
 			 * Filter the API base endpoint.
 			 *

@@ -3,7 +3,7 @@
  * Single source of truth for all plugin option defaults.
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -37,7 +37,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Defaults' ) ) {
 
 				'reportedip_hive_operation_mode'           => 'local',
 				'reportedip_hive_api_key'                  => '',
-				'reportedip_hive_api_endpoint'             => 'https://reportedip.de/wp-json/reportedip/v2/',
+				'reportedip_hive_api_endpoint'             => 'https://reportedip.com/wp-json/reportedip/v2/',
 				'reportedip_hive_trusted_ip_header'        => '',
 
 				'reportedip_hive_failed_login_threshold'   => 5,

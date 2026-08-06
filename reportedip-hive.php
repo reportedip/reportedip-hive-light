@@ -1,21 +1,21 @@
 <?php
 /**
  * Plugin Name:       ReportedIP Hive Light
- * Plugin URI:        https://reportedip.de/products/wordpress-plugin/
+ * Plugin URI:        https://reportedip.com/products/wordpress-plugin/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
- * Version:           1.3.6
+ * Version:           1.3.7
  * Requires at least: 6.1
  * Tested up to:      7.0
  * Requires PHP:      8.1
  * Author:            Patrick Schlesinger
- * Author URI:        https://reportedip.de
+ * Author URI:        https://reportedip.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       reportedip-hive
  * Domain Path:       /languages
  *
  * @package   ReportedIP_Hive
- * @author    Patrick Schlesinger <1@reportedip.de>
+ * @author    Patrick Schlesinger <1@reportedip.com>
  * @copyright 2026 Patrick Schlesinger
  * @license   GPL-2.0-or-later https://www.gnu.org/licenses/gpl-2.0.html
  * @link      https://wordpress.org/plugins/reportedip-hive/
@@ -28,8 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.6' );
-defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.1.0' );
+defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.7' );
+defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.2.0' );
 defined( 'REPORTEDIP_HIVE_PLUGIN_FILE' ) || define( 'REPORTEDIP_HIVE_PLUGIN_FILE', __FILE__ );
 defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) || define( 'REPORTEDIP_HIVE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'REPORTEDIP_HIVE_PLUGIN_URL' ) || define( 'REPORTEDIP_HIVE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -145,6 +145,7 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 		 * @since  1.0.0
 		 */
 		private function init_hooks(): void {
+			add_action( 'init', array( $this->database, 'maybe_update_schema' ), 0 );
 			add_action( 'init', array( $this, 'enforce_block' ), 1 );
 
 			add_action( 'wp_login_failed', array( $this->security_monitor, 'handle_failed_login' ) );
@@ -177,7 +178,7 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 
 			$plugin_meta[] = sprintf(
 				'<a href="%1$s" target="_blank" rel="noopener">%2$s</a>',
-				esc_url( 'https://reportedip.de/products/wordpress-plugin/' ),
+				esc_url( 'https://reportedip.com/products/wordpress-plugin/' ),
 				esc_html__( 'Full Edition & PRO', 'reportedip-hive' )
 			);
 
@@ -400,7 +401,7 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 
 			$content  = '<p>' . esc_html__( 'This plugin processes IP addresses to detect brute-force login attacks against your site. IP addresses are stored in the site database and may be displayed in the WordPress admin under "ReportedIP Hive Light → Blocked IPs".', 'reportedip-hive' ) . '</p>';
 			$content .= '<p>' . esc_html__( 'Usernames submitted to the login form are stored as a SHA-256 hash, salted with the site\'s wp_salt(). Plain-text usernames are never stored or transmitted.', 'reportedip-hive' ) . '</p>';
-			$content .= '<p>' . esc_html__( 'In Local Shield mode (default), no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.de for collective threat intelligence. The site is identified only by the Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ) . '</p>';
+			$content .= '<p>' . esc_html__( 'In Local Shield mode (default), no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.com for collective threat intelligence. The site is identified only by the Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ) . '</p>';
 			$content .= '<p>' . esc_html__( 'Legal basis: GDPR Art. 6(1)(f), legitimate interest in network security.', 'reportedip-hive' ) . '</p>';
 
 			wp_add_privacy_policy_content( 'ReportedIP Hive Light', wp_kses_post( $content ) );

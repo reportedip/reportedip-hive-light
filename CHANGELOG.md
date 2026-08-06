@@ -4,6 +4,18 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.7] — 2026-08-06
+
+### Changed
+
+- The ReportedIP service has moved from reportedip.de to reportedip.com.
+  All plugin URLs (product page, legal pages, API endpoint default) and
+  the support contact address now point at the new domain.
+- Existing installations that still use the former default API endpoint
+  are migrated automatically on upgrade; custom endpoint values are left
+  untouched. Schema/data migrations now also run on plugin updates, not
+  only on activation.
+
 ## [1.3.6] — 2026-07-10
 
 ### Changed

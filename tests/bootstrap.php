@@ -14,7 +14,7 @@ if ( ! defined( 'REPORTEDIP_HIVE_VERSION' ) ) {
 	define( 'REPORTEDIP_HIVE_VERSION', '1.0.0-test' );
 }
 if ( ! defined( 'REPORTEDIP_HIVE_DB_VERSION' ) ) {
-	define( 'REPORTEDIP_HIVE_DB_VERSION', '1.0.0' );
+	define( 'REPORTEDIP_HIVE_DB_VERSION', '1.2.0' );
 }
 if ( ! defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) ) {
 	define( 'REPORTEDIP_HIVE_PLUGIN_DIR', dirname( __DIR__ ) . '/' );
