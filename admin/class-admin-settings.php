@@ -804,7 +804,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 								<ul>
 									<li><?php esc_html_e( 'Send blocked IP addresses to reportedip.com when your site detects an attack.', 'reportedip-hive' ); ?></li>
 									<li><?php esc_html_e( 'Query reportedip.com during login attempts to check IP reputation.', 'reportedip-hive' ); ?></li>
-									<li><?php esc_html_e( 'Hash usernames (SHA-256, salted with wp_salt()) before any transmission — plaintext usernames never leave your server.', 'reportedip-hive' ); ?></li>
+									<li><?php esc_html_e( 'Send only the IP address, a category ID and a short comment with each report. Usernames never leave your server, neither in plain text nor hashed.', 'reportedip-hive' ); ?></li>
 									<li><?php esc_html_e( 'Identify your site only via your Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ); ?></li>
 								</ul>
 								<p><?php esc_html_e( 'Legal basis: GDPR Art. 6(1)(f), legitimate interest in network security.', 'reportedip-hive' ); ?></p>
@@ -977,7 +977,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Admin_Settings' ) ) {
 			<div class="rip-alert rip-alert--info">
 				<div class="rip-alert__content">
 					<h3><?php esc_html_e( 'Privacy notice', 'reportedip-hive' ); ?></h3>
-					<p><?php esc_html_e( 'This plugin processes IP addresses to detect attacks. Username inputs are stored hashed (SHA-256, salted with wp_salt()), never in plaintext. In Local Shield mode, no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.com. See the readme.txt "External services" and "Privacy" sections for full details.', 'reportedip-hive' ); ?></p>
+					<p><?php esc_html_e( 'This plugin processes IP addresses to detect attacks. Username inputs are stored hashed (SHA-256, salted with wp_salt()), never in plaintext. In Local Shield mode, no data leaves your server. In Community Network mode, blocked IP addresses are shared with reportedip.com together with an event category and a short comment; usernames are never transmitted. See the readme.txt "External services" and "Privacy" sections for full details.', 'reportedip-hive' ); ?></p>
 				</div>
 			</div>
 			<?php

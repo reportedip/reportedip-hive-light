@@ -305,7 +305,7 @@ if ( ! class_exists( 'ReportedIP_Hive_Setup_Wizard' ) ) {
 						<label class="rip-form-group">
 							<input type="radio" name="operation_mode" value="community" <?php checked( $mode, 'community' ); ?> />
 							<strong><?php esc_html_e( 'Community Network (optional)', 'reportedip-hive' ); ?></strong>
-							<span class="rip-help-text"><?php esc_html_e( 'Checks IP reputation against the reportedip.com community database during login attempts and shares blocked IPs back. Hashed usernames only — never plaintext.', 'reportedip-hive' ); ?></span>
+							<span class="rip-help-text"><?php esc_html_e( 'Checks IP reputation against the reportedip.com community database during login attempts and shares blocked IPs back. Usernames are never sent.', 'reportedip-hive' ); ?></span>
 						</label>
 
 						<div class="rip-form-group">

@@ -4,6 +4,21 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.8] - 2026-09-29
+
+### Fixed
+
+- Privacy texts in the readme (Privacy, FAQ, username hashing), on the
+  settings page, in the setup wizard and in the privacy policy suggestion
+  claimed that a report carries a hashed username and a timestamp. The
+  code never sent either: a report contains the IP address, an integer
+  category ID and a short comment. The texts now say so. The username hash
+  is stored locally only.
+
+### Changed
+
+- Tested up to WordPress 7.1.
+
 ## [1.3.7] — 2026-08-06
 
 ### Changed

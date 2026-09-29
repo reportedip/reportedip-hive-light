@@ -3,9 +3,9 @@
  * Plugin Name:       ReportedIP Hive Light
  * Plugin URI:        https://reportedip.com/products/wordpress-plugin/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
- * Version:           1.3.7
+ * Version:           1.3.8
  * Requires at least: 6.1
- * Tested up to:      7.0
+ * Tested up to:      7.1
  * Requires PHP:      8.1
  * Author:            Patrick Schlesinger
  * Author URI:        https://reportedip.com
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.7' );
+defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.8' );
 defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.2.0' );
 defined( 'REPORTEDIP_HIVE_PLUGIN_FILE' ) || define( 'REPORTEDIP_HIVE_PLUGIN_FILE', __FILE__ );
 defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) || define( 'REPORTEDIP_HIVE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -400,8 +400,8 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 			}
 
 			$content  = '<p>' . esc_html__( 'This plugin processes IP addresses to detect brute-force login attacks against your site. IP addresses are stored in the site database and may be displayed in the WordPress admin under "ReportedIP Hive Light → Blocked IPs".', 'reportedip-hive' ) . '</p>';
-			$content .= '<p>' . esc_html__( 'Usernames submitted to the login form are stored as a SHA-256 hash, salted with the site\'s wp_salt(). Plain-text usernames are never stored or transmitted.', 'reportedip-hive' ) . '</p>';
-			$content .= '<p>' . esc_html__( 'In Local Shield mode (default), no data leaves your server. In Community Network mode, blocked IP addresses and minimal context (event type, hashed username, timestamp) are shared with reportedip.com for collective threat intelligence. The site is identified only by the Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ) . '</p>';
+			$content .= '<p>' . esc_html__( 'Usernames submitted to the login form are stored as a SHA-256 hash, salted with the site\'s wp_salt(). Usernames are never transmitted, neither in plain text nor hashed.', 'reportedip-hive' ) . '</p>';
+			$content .= '<p>' . esc_html__( 'In Local Shield mode (default), no data leaves your server. In Community Network mode, blocked IP addresses are shared with reportedip.com for collective threat intelligence, together with an event category and a short comment such as the number of failed logins. The site is identified only by the Community Access Key — no domain or contact information is transmitted.', 'reportedip-hive' ) . '</p>';
 			$content .= '<p>' . esc_html__( 'Legal basis: GDPR Art. 6(1)(f), legitimate interest in network security.', 'reportedip-hive' ) . '</p>';
 
 			wp_add_privacy_policy_content( 'ReportedIP Hive Light', wp_kses_post( $content ) );

@@ -2,9 +2,9 @@
 Contributors: reportedip
 Tags: security, login, brute-force, ip-blocking, firewall
 Requires at least: 6.1
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,8 +29,8 @@ ReportedIP Hive Light protects WordPress logins against brute-force and password
 **Privacy**
 
 * IP addresses are processed for the legitimate purpose of network security (GDPR Art. 6(1)(f)).
-* Usernames are stored only as a SHA-256 hash, salted with `wp_salt()`. Plain-text usernames are never persisted or transmitted.
-* In Local Shield mode, no data leaves your server. In Community Network mode, only the IP, hashed username, event type, and timestamp are sent — no domain, no contact details, no traffic data.
+* Usernames are stored locally only as a SHA-256 hash, salted with `wp_salt()`. Usernames are never transmitted, neither in plain text nor hashed.
+* In Local Shield mode, no data leaves your server. In Community Network mode, a report carries only the IP address, an integer category ID for the event type and a short comment such as "5 failed logins in 15 minutes". No username, no domain, no contact details, no traffic data.
 
 **For developers**
 
@@ -71,7 +71,7 @@ Visit *ReportedIP Hive Light → Blocked IPs*, select the row, and choose "Unblo
 
 = What data does the plugin send to reportedip.com? =
 
-In Community Network mode only: the IP address, a SHA-256 hash of the submitted username (salted with `wp_salt()`), an integer category ID for the event type, and an optional comment. Plain-text usernames, passwords, domains, or contact details are never transmitted. See the "External services" section for full details.
+In Community Network mode only: the IP address, an integer category ID for the event type, and a short comment such as "5 failed logins in 15 minutes". Usernames (plain or hashed), passwords, domains, or contact details are never transmitted. See the "External services" section for full details.
 
 = Does the plugin protect Application Passwords? =
 
@@ -138,9 +138,8 @@ Shield", which performs zero external requests.
 = Hashing of submitted usernames =
 
 When a brute-force attempt is detected and the failing username is recorded
-locally, the plugin stores `sha256( username + wp_salt() )` only — never the
-plain text. The salted hash is also what would be transmitted with a report,
-preventing recipients from recovering the original username.
+locally, the plugin stores `sha256( username + wp_salt() )` only, never the
+plain text. The hash stays on your server; reports do not contain it.
 
 = Service provider =
 
@@ -199,7 +198,7 @@ visible at *Plugins → Plugin File Editor* once the plugin is installed.
 == Privacy ==
 
 * IP addresses are processed under GDPR Art. 6(1)(f) (legitimate interest in network security).
-* Usernames are stored as a salted SHA-256 hash; plain-text values are never persisted or transmitted.
+* Usernames are stored locally as a salted SHA-256 hash and are never transmitted, neither in plain text nor hashed.
 * In Local Shield mode (default) no data leaves your server.
 * In Community Network mode the data listed above is sent to reportedip.com.
 * Data retention is configurable in *Settings → Privacy*. The default attempt window is 15 minutes; the API queue retention is 7 days.
@@ -229,6 +228,14 @@ in network security — typically applies) and for updating their own privacy
 policy accordingly.
 
 == Changelog ==
+
+= 1.3.8 =
+
+* Privacy texts corrected. The readme, the settings page and the privacy
+  policy suggestion said a report carries a hashed username and a
+  timestamp. It never did: a report contains only the IP address, the
+  category ID and a short comment. The username hash stays on your server.
+* Tested up to WordPress 7.1.
 
 = 1.3.7 =
 
@@ -346,6 +353,9 @@ policy accordingly.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.8 =
+Privacy texts now match what the plugin sends: IP address, category ID and a short comment, no username hash. No protection-logic changes.
 
 = 1.3.7 =
 The ReportedIP service moved to reportedip.com. All URLs and the default API endpoint are updated; installations on the former default endpoint migrate automatically. No protection-logic changes.
