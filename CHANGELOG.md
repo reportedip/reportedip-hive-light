@@ -4,6 +4,26 @@ All notable changes to ReportedIP Hive Light are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.9] - 2026-10-11
+
+### Added
+
+- German (de_DE, de_DE_formal, de_AT), French (fr_FR) and Spanish (es_ES)
+  translations, bundled as .mo and .l10n.php files.
+
+### Fixed
+
+- Bundled catalogs in `languages/` are now loaded via
+  `load_plugin_textdomain()`. Before, only language packs from
+  translate.wordpress.org could take effect.
+
+### Changed
+
+- readme.txt rewritten: complete feature list, new FAQ entries, tags and
+  short description aimed at "limit login attempts". The undocumented
+  filter `reportedip_hive_event_category_map`, which never existed in the
+  code, is no longer listed.
+
 ## [1.3.8] - 2026-09-29
 
 ### Fixed

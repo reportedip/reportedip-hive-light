@@ -1,0 +1,903 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ReportedIP Hive Light 1.3.8\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/reportedip-hive\n"
+"Last-Translator: Patrick Schlesinger <ps@cms-admins.de>\n"
+"Language-Team: es_ES\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Domain: reportedip-hive\n"
+
+#. Plugin Name of the plugin
+#: reportedip-hive.php admin/class-admin-settings.php:101
+#: admin/class-admin-settings.php:102 admin/class-admin-settings.php:396
+#: admin/class-admin-settings.php:560 admin/class-admin-settings.php:608
+#: admin/class-admin-settings.php:656
+msgid "ReportedIP Hive Light"
+msgstr "ReportedIP Hive Light"
+
+#. Plugin URI of the plugin
+#: reportedip-hive.php
+msgid "https://reportedip.com/products/wordpress-plugin/"
+msgstr "https://reportedip.com/products/wordpress-plugin/"
+
+#. Description of the plugin
+#: reportedip-hive.php
+msgid ""
+"Lightweight brute-force login protection with optional community-powered IP "
+"reputation checks."
+msgstr ""
+"Protección ligera de inicio de sesión contra ataques de fuerza bruta, con "
+"consultas opcionales de reputación de IP impulsadas por la comunidad."
+
+#. Author of the plugin
+#: reportedip-hive.php
+msgid "Patrick Schlesinger"
+msgstr "Patrick Schlesinger"
+
+#. Author URI of the plugin
+#: reportedip-hive.php
+msgid "https://reportedip.com"
+msgstr "https://reportedip.com"
+
+#: admin/class-admin-settings.php:112 admin/class-admin-settings.php:113
+#: admin/class-admin-settings.php:396
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#: admin/class-admin-settings.php:121 admin/class-admin-settings.php:122
+msgid "Settings"
+msgstr "Ajustes"
+
+#: admin/class-admin-settings.php:130 admin/class-admin-settings.php:131
+msgid "Blocked IPs"
+msgstr "IP bloqueadas"
+
+#: admin/class-admin-settings.php:139 admin/class-admin-settings.php:140
+msgid "Whitelist"
+msgstr "Whitelist"
+
+#. translators: %s: IP or CIDR that was just whitelisted
+#: admin/class-admin-settings.php:191
+#, php-format
+msgid "Added %s to the whitelist."
+msgstr "%s se ha añadido a la whitelist."
+
+#: admin/class-admin-settings.php:200
+msgid ""
+"Could not add the entry — please provide a valid IPv4/v6 address or CIDR "
+"range."
+msgstr ""
+"No se ha podido añadir la entrada. Introduce una dirección IPv4/v6 o un "
+"rango CIDR válidos."
+
+#: admin/class-admin-settings.php:373
+msgid "Testing connection…"
+msgstr "Probando conexión…"
+
+#: admin/class-admin-settings.php:374
+msgid "Please enter an access key first."
+msgstr "Primero introduce una clave de acceso."
+
+#: admin/class-admin-settings.php:375
+msgid "Could not reach reportedip.com. Check your network and try again."
+msgstr ""
+"No se ha podido conectar con reportedip.com. Comprueba tu red e inténtalo de"
+" nuevo."
+
+#: admin/class-admin-settings.php:402
+msgid "Active blocks"
+msgstr "Bloqueos activos"
+
+#: admin/class-admin-settings.php:407
+msgid "Blocks (last 24 h)"
+msgstr "Bloqueos (últimas 24 h)"
+
+#: admin/class-admin-settings.php:412
+msgid "Attempts (last 24 h)"
+msgstr "Intentos (últimas 24 h)"
+
+#: admin/class-admin-settings.php:417
+msgid "Whitelisted IPs"
+msgstr "IP en la whitelist"
+
+#: admin/class-admin-settings.php:436
+msgid "Last 24 h"
+msgstr "Últimas 24 h"
+
+#: admin/class-admin-settings.php:440
+msgid "Last 7 days"
+msgstr "Últimos 7 días"
+
+#: admin/class-admin-settings.php:444
+msgid "Last 30 days"
+msgstr "Últimos 30 días"
+
+#: admin/class-admin-settings.php:448
+msgid "All time"
+msgstr "Desde siempre"
+
+#: admin/class-admin-settings.php:454
+msgid "Defended attacks"
+msgstr "Ataques repelidos"
+
+#: admin/class-admin-settings.php:464
+msgid ""
+"Each block represents one IP that was prevented from logging in after "
+"exceeding the configured thresholds."
+msgstr ""
+"Cada bloqueo corresponde a una IP a la que se impidió iniciar sesión tras "
+"superar los umbrales configurados."
+
+#: admin/class-admin-settings.php:469 admin/class-setup-wizard.php:185
+#: admin/class-setup-wizard.php:296
+msgid "Operation mode"
+msgstr "Modo de funcionamiento"
+
+#: admin/class-admin-settings.php:472
+msgid "Community Network"
+msgstr "Community Network"
+
+#: admin/class-admin-settings.php:472
+msgid "IP reputation lookups + queued reports active."
+msgstr "Consultas de reputación de IP + cola de informes activas."
+
+#: admin/class-admin-settings.php:474
+msgid "Local Shield"
+msgstr "Local Shield"
+
+#: admin/class-admin-settings.php:474
+msgid ""
+"No external requests. Switch to Community Network in Settings to enable "
+"reputation lookups."
+msgstr ""
+"Sin peticiones externas. Cambia a Community Network en Ajustes para activar "
+"las consultas de reputación."
+
+#: admin/class-admin-settings.php:481
+msgid "API health & quota"
+msgstr "Estado y cuota de la API"
+
+#. translators: 1: used calls, 2: max calls per hour
+#: admin/class-admin-settings.php:491
+#, php-format
+msgid "Outbound calls this hour: %1$d / %2$d"
+msgstr "Llamadas salientes en esta hora: %1$d / %2$d"
+
+#: admin/class-admin-settings.php:498
+msgid ""
+"Rolling 1-hour window. When exhausted, reputation lookups are skipped (login"
+" still proceeds, fail-open)."
+msgstr ""
+"Ventana móvil de 1 hora. Si se agota, se omiten las consultas de reputación "
+"(el inicio de sesión continúa, fail-open)."
+
+#: admin/class-admin-settings.php:504
+msgid "Report queue"
+msgstr "Cola de informes"
+
+#: admin/class-admin-settings.php:507
+msgid "pending"
+msgstr "pendiente"
+
+#: admin/class-admin-settings.php:508
+msgid "processing"
+msgstr "en proceso"
+
+#: admin/class-admin-settings.php:509
+msgid "completed"
+msgstr "completado"
+
+#: admin/class-admin-settings.php:510
+msgid "failed"
+msgstr "fallido"
+
+#: admin/class-admin-settings.php:512
+msgid ""
+"Reports are queued in the database and dispatched by a 15-minute cron job — "
+"never from the login path. Failed rows retry up to 3 times."
+msgstr ""
+"Los informes se guardan en cola en la base de datos y los envía un cron cada"
+" 15 minutos, nunca desde el proceso de inicio de sesión. Las filas fallidas "
+"se reintentan hasta 3 veces."
+
+#: admin/class-admin-settings.php:517
+msgid "Recent activity"
+msgstr "Actividad reciente"
+
+#: admin/class-admin-settings.php:524
+msgid "No login attempts recorded yet."
+msgstr "Todavía no se ha registrado ningún intento de inicio de sesión."
+
+#: admin/class-admin-settings.php:552
+msgid "Connection"
+msgstr "Conexión"
+
+#: admin/class-admin-settings.php:553 admin/class-setup-wizard.php:186
+msgid "Protection"
+msgstr "Protección"
+
+#: admin/class-admin-settings.php:554
+msgid "Privacy"
+msgstr "Privacidad"
+
+#: admin/class-admin-settings.php:560
+msgid "Brute-force protection for WordPress logins"
+msgstr ""
+"Protección contra ataques de fuerza bruta para el inicio de sesión de "
+"WordPress"
+
+#: admin/class-admin-settings.php:585
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: admin/class-admin-settings.php:608
+msgid "Blocked IP addresses"
+msgstr "Direcciones IP bloqueadas"
+
+#: admin/class-admin-settings.php:656
+msgid "IP whitelist"
+msgstr "Whitelist de IP"
+
+#: admin/class-admin-settings.php:664 admin/class-admin-settings.php:689
+msgid "Add to whitelist"
+msgstr "Añadir a la whitelist"
+
+#: admin/class-admin-settings.php:672
+msgid "IP address or CIDR range"
+msgstr "Dirección IP o rango CIDR"
+
+#: admin/class-admin-settings.php:674
+msgid "IPv4, IPv6 or IPv4 CIDR (e.g. 203.0.113.0/24)."
+msgstr "IPv4, IPv6 o CIDR IPv4 (p. ej. 203.0.113.0/24)."
+
+#: admin/class-admin-settings.php:678
+msgid "Reason (optional)"
+msgstr "Motivo (opcional)"
+
+#: admin/class-admin-settings.php:679
+msgid "e.g. Office VPN"
+msgstr "p. ej. VPN de la oficina"
+
+#: admin/class-admin-settings.php:683
+msgid "Expires (optional)"
+msgstr "Caduca (opcional)"
+
+#: admin/class-admin-settings.php:685
+msgid "Leave blank for a permanent entry."
+msgstr "Déjalo en blanco para una entrada permanente."
+
+#: admin/class-admin-settings.php:697
+msgid "Current whitelist"
+msgstr "Whitelist actual"
+
+#: admin/class-admin-settings.php:701
+msgid "No whitelist entries yet."
+msgstr "Todavía no hay entradas en la whitelist."
+
+#: admin/class-admin-settings.php:728 admin/class-admin-settings.php:752
+#: reportedip-hive.php:468
+msgid "Insufficient permissions."
+msgstr "Permisos insuficientes."
+
+#: admin/class-admin-settings.php:757
+msgid "Invalid IP address."
+msgstr "Dirección IP no válida."
+
+#: admin/class-admin-settings.php:777
+msgid "None — use REMOTE_ADDR (default)"
+msgstr "Ninguna, usar REMOTE_ADDR (por defecto)"
+
+#: admin/class-admin-settings.php:787
+msgid "Operation Mode"
+msgstr "Modo de funcionamiento"
+
+#: admin/class-admin-settings.php:792 admin/class-setup-wizard.php:301
+msgid "Local Shield (recommended)"
+msgstr "Local Shield (recomendado)"
+
+#: admin/class-admin-settings.php:793 admin/class-setup-wizard.php:302
+msgid "Uses only your site's data. No external requests."
+msgstr "Solo usa los datos de tu sitio. Sin peticiones externas."
+
+#: admin/class-admin-settings.php:798 admin/class-setup-wizard.php:307
+msgid "Community Network (optional)"
+msgstr "Community Network (opcional)"
+
+#: admin/class-admin-settings.php:803
+msgid "Enabling Community Network mode will:"
+msgstr "Al activar el modo Community Network, el plugin:"
+
+#: admin/class-admin-settings.php:805
+msgid ""
+"Send blocked IP addresses to reportedip.com when your site detects an "
+"attack."
+msgstr ""
+"Enviará las direcciones IP bloqueadas a reportedip.com cuando tu sitio "
+"detecte un ataque."
+
+#: admin/class-admin-settings.php:806
+msgid "Query reportedip.com during login attempts to check IP reputation."
+msgstr ""
+"Consultará reportedip.com durante los intentos de inicio de sesión para "
+"comprobar la reputación de la IP."
+
+#: admin/class-admin-settings.php:807
+msgid ""
+"Send only the IP address, a category ID and a short comment with each "
+"report. Usernames never leave your server, neither in plain text nor hashed."
+msgstr ""
+"Enviará solo la dirección IP, un ID de categoría y un breve comentario con "
+"cada informe. Los nombres de usuario nunca salen de tu servidor, ni en texto"
+" plano ni en hash."
+
+#: admin/class-admin-settings.php:808
+msgid ""
+"Identify your site only via your Community Access Key — no domain or contact"
+" information is transmitted."
+msgstr ""
+"Identificará tu sitio únicamente mediante tu Community Access Key. No se "
+"transmite ningún dominio ni dato de contacto."
+
+#: admin/class-admin-settings.php:810 reportedip-hive.php:405
+msgid ""
+"Legal basis: GDPR Art. 6(1)(f), legitimate interest in network security."
+msgstr ""
+"Base legal: art. 6.1.f del RGPD, interés legítimo en la seguridad de la red."
+
+#: admin/class-admin-settings.php:818
+msgid "Community Access Key"
+msgstr "Community Access Key"
+
+#: admin/class-admin-settings.php:821
+msgid "Access Key"
+msgstr "Clave de acceso"
+
+#: admin/class-admin-settings.php:823
+msgid "Need an access key? Visit reportedip.com."
+msgstr "¿Necesitas una clave de acceso? Visita reportedip.com."
+
+#: admin/class-admin-settings.php:827
+msgid "API Endpoint"
+msgstr "Endpoint de la API"
+
+#: admin/class-admin-settings.php:829
+msgid ""
+"Default endpoint. Override via the reportedip_hive_api_endpoint filter."
+msgstr ""
+"Endpoint por defecto. Puedes cambiarlo con el filtro "
+"reportedip_hive_api_endpoint."
+
+#: admin/class-admin-settings.php:833
+msgid "Test connection"
+msgstr "Probar conexión"
+
+#: admin/class-admin-settings.php:840
+msgid "Reverse Proxy"
+msgstr "Proxy inverso"
+
+#: admin/class-admin-settings.php:843
+msgid "Trusted Proxy Header"
+msgstr "Cabecera de proxy de confianza"
+
+#: admin/class-admin-settings.php:849
+msgid ""
+"Only set this if your site sits behind a reverse proxy (Cloudflare, AWS, "
+"NGINX) that overrides the header for every incoming request. Otherwise the "
+"header can be spoofed."
+msgstr ""
+"Configúralo solo si tu sitio está detrás de un proxy inverso (Cloudflare, "
+"AWS, NGINX) que sobrescribe la cabecera en cada petición entrante. De lo "
+"contrario, la cabecera puede falsificarse."
+
+#: admin/class-admin-settings.php:873
+msgid "Brute-force thresholds"
+msgstr "Umbrales de fuerza bruta"
+
+#: admin/class-admin-settings.php:876 admin/class-setup-wizard.php:347
+msgid "Failed-login threshold"
+msgstr "Umbral de inicios de sesión fallidos"
+
+#: admin/class-admin-settings.php:878 admin/class-setup-wizard.php:349
+msgid "Block an IP after this many failed login attempts."
+msgstr ""
+"Bloquea una IP tras este número de intentos de inicio de sesión fallidos."
+
+#: admin/class-admin-settings.php:881 admin/class-admin-settings.php:897
+#: admin/class-setup-wizard.php:353
+msgid "Time window (minutes)"
+msgstr "Ventana de tiempo (minutos)"
+
+#: admin/class-admin-settings.php:883 admin/class-setup-wizard.php:355
+msgid "Time window during which failed attempts are counted."
+msgstr "Ventana de tiempo durante la que se cuentan los intentos fallidos."
+
+#: admin/class-admin-settings.php:889
+msgid "Password-spray detection"
+msgstr "Detección de password spraying (rociado de contraseñas)"
+
+#: admin/class-admin-settings.php:892
+msgid "Distinct usernames threshold"
+msgstr "Umbral de nombres de usuario distintos"
+
+#: admin/class-admin-settings.php:894
+msgid "Block an IP that fails logins against this many distinct usernames."
+msgstr ""
+"Bloquea una IP que falla el inicio de sesión con este número de nombres de "
+"usuario distintos."
+
+#: admin/class-admin-settings.php:904
+msgid "Blocking behaviour"
+msgstr "Comportamiento de bloqueo"
+
+#: admin/class-admin-settings.php:908
+msgid "Automatic blocking"
+msgstr "Bloqueo automático"
+
+#: admin/class-admin-settings.php:910
+msgid ""
+"If disabled, attempts are logged but no block is enforced (report-only "
+"mode)."
+msgstr ""
+"Si está desactivado, los intentos se registran pero no se aplica ningún "
+"bloqueo (modo solo informe)."
+
+#: admin/class-admin-settings.php:914
+msgid "Progressive block duration"
+msgstr "Duración de bloqueo progresiva"
+
+#: admin/class-admin-settings.php:916
+msgid ""
+"Increases block duration with each repeat offense (5 min → 15 min → 30 min →"
+" 24 h → 48 h → 7 days)."
+msgstr ""
+"Aumenta la duración del bloqueo con cada reincidencia (5 min → 15 min → 30 "
+"min → 24 h → 48 h → 7 días)."
+
+#: admin/class-admin-settings.php:920
+msgid "Report-only mode"
+msgstr "Modo solo informe"
+
+#: admin/class-admin-settings.php:922
+msgid ""
+"Detect and report attacks but never block. Useful for staging environments."
+msgstr ""
+"Detecta e informa de los ataques, pero nunca bloquea. Útil para entornos de "
+"staging."
+
+#: admin/class-admin-settings.php:925
+msgid "Show advanced (block ladder)"
+msgstr "Mostrar opciones avanzadas (escala de bloqueo)"
+
+#: admin/class-admin-settings.php:927
+msgid "Block ladder (CSV minutes)"
+msgstr "Escala de bloqueo (minutos en CSV)"
+
+#: admin/class-admin-settings.php:949
+msgid "Cache & retention"
+msgstr "Caché y conservación"
+
+#: admin/class-admin-settings.php:952
+msgid "Reputation cache duration (hours)"
+msgstr "Duración de la caché de reputación (horas)"
+
+#: admin/class-admin-settings.php:956
+msgid "Negative cache duration (hours)"
+msgstr "Duración de la caché negativa (horas)"
+
+#: admin/class-admin-settings.php:960
+msgid "API queue retention (days)"
+msgstr "Conservación de la cola de la API (días)"
+
+#: admin/class-admin-settings.php:967
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+#: admin/class-admin-settings.php:971
+msgid "Delete all data on uninstall"
+msgstr "Borrar todos los datos al desinstalar"
+
+#: admin/class-admin-settings.php:973
+msgid ""
+"Drop all plugin tables and options when the plugin is deleted. Recommended "
+"OFF for forensic reasons."
+msgstr ""
+"Elimina todas las tablas y opciones del plugin cuando se borra el plugin. "
+"Recomendado DESACTIVADO por motivos forenses."
+
+#: admin/class-admin-settings.php:979
+msgid "Privacy notice"
+msgstr "Aviso de privacidad"
+
+#: admin/class-admin-settings.php:980
+msgid ""
+"This plugin processes IP addresses to detect attacks. Username inputs are "
+"stored hashed (SHA-256, salted with wp_salt()), never in plaintext. In Local"
+" Shield mode, no data leaves your server. In Community Network mode, blocked"
+" IP addresses are shared with reportedip.com together with an event category"
+" and a short comment; usernames are never transmitted. See the readme.txt "
+"\"External services\" and \"Privacy\" sections for full details."
+msgstr ""
+"Este plugin procesa direcciones IP para detectar ataques. Los nombres de "
+"usuario introducidos se guardan como hash (SHA-256, con sal de wp_salt()), "
+"nunca en texto plano. En el modo Local Shield, ningún dato sale de tu "
+"servidor. En el modo Community Network, las direcciones IP bloqueadas se "
+"comparten con reportedip.com junto con una categoría de evento y un breve "
+"comentario; los nombres de usuario nunca se transmiten. Consulta las "
+"secciones \"External services\" y \"Privacy\" del readme.txt para más "
+"detalles."
+
+#: admin/class-admin-settings.php:997
+msgid "No blocked IPs yet"
+msgstr "Todavía no hay IP bloqueadas"
+
+#: admin/class-admin-settings.php:998
+msgid ""
+"When the plugin blocks an attacker, you will see them listed here. Configure"
+" thresholds in Settings → Protection."
+msgstr ""
+"Cuando el plugin bloquee a un atacante, aparecerá aquí. Configura los "
+"umbrales en Ajustes → Protección."
+
+#: admin/class-admin-settings.php:999
+msgid "Configure Protection"
+msgstr "Configurar protección"
+
+#: admin/class-admin-settings.php:1086
+msgid ""
+"Hive Light is complete and stays free. Need a Web Application Firewall, two-"
+"factor authentication or multisite support? The free Full Edition and the "
+"optional Hive PRO subscription build on the same engine."
+msgstr ""
+"Hive Light está completo y seguirá siendo gratuito. ¿Necesitas un firewall "
+"de aplicaciones web, autenticación en dos pasos o compatibilidad con "
+"multisitio? La Full Edition gratuita y la suscripción opcional Hive PRO se "
+"basan en el mismo motor."
+
+#: admin/class-admin-settings.php:1088
+msgid "ReportedIP Hive Full Edition & PRO"
+msgstr "ReportedIP Hive Full Edition & PRO"
+
+#: admin/class-admin-settings.php:1107
+msgid "Security Focused"
+msgstr "Security Focused"
+
+#: admin/class-admin-settings.php:1111
+msgid "GDPR Compliant"
+msgstr "GDPR Compliant"
+
+#: admin/class-admin-settings.php:1115
+msgid "Made in Germany"
+msgstr "Made in Germany"
+
+#: admin/class-admin-settings.php:1137
+msgid "Settings saved."
+msgstr "Ajustes guardados."
+
+#: admin/class-attempts-list-table.php:64 admin/class-blocked-ips-table.php:65
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#: admin/class-attempts-list-table.php:65 admin/class-blocked-ips-table.php:67
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/class-attempts-list-table.php:66
+msgid "Count"
+msgstr "Cantidad"
+
+#: admin/class-attempts-list-table.php:67
+msgid "Last attempt"
+msgstr "Último intento"
+
+#. translators: %s: human-readable time difference
+#: admin/class-attempts-list-table.php:111 admin/class-whitelist-table.php:255
+#, php-format
+msgid "%s ago"
+msgstr "hace %s"
+
+#: admin/class-blocked-ips-table.php:66 admin/class-whitelist-table.php:66
+msgid "Reason"
+msgstr "Motivo"
+
+#: admin/class-blocked-ips-table.php:68
+msgid "Attempts"
+msgstr "Intentos"
+
+#: admin/class-blocked-ips-table.php:69
+msgid "Blocked until"
+msgstr "Bloqueado hasta"
+
+#: admin/class-blocked-ips-table.php:70
+msgid "Status"
+msgstr "Estado"
+
+#: admin/class-blocked-ips-table.php:97
+msgid "Unblock selected"
+msgstr "Desbloquear seleccionadas"
+
+#: admin/class-blocked-ips-table.php:215
+msgid "Never expires"
+msgstr "No caduca nunca"
+
+#: admin/class-blocked-ips-table.php:224 admin/class-blocked-ips-table.php:255
+#: admin/class-whitelist-table.php:211
+msgid "Expired"
+msgstr "Caducado"
+
+#. translators: %s: human-readable time difference
+#: admin/class-blocked-ips-table.php:229 admin/class-whitelist-table.php:216
+#, php-format
+msgid "in %s"
+msgstr "en %s"
+
+#: admin/class-blocked-ips-table.php:246
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: admin/class-blocked-ips-table.php:250 admin/class-blocked-ips-table.php:258
+msgid "Active"
+msgstr "Activo"
+
+#: admin/class-setup-wizard.php:54 admin/class-setup-wizard.php:195
+msgid "ReportedIP Hive Light Setup"
+msgstr "Configuración de ReportedIP Hive Light"
+
+#: admin/class-setup-wizard.php:55
+msgid "Setup"
+msgstr "Configuración"
+
+#: admin/class-setup-wizard.php:184
+msgid "Welcome"
+msgstr "Bienvenida"
+
+#: admin/class-setup-wizard.php:187
+msgid "Done"
+msgstr "Listo"
+
+#: admin/class-setup-wizard.php:208
+msgid "Skip setup"
+msgstr "Omitir configuración"
+
+#: admin/class-setup-wizard.php:212
+msgid "Setup progress"
+msgstr "Progreso de la configuración"
+
+#: admin/class-setup-wizard.php:263
+msgid "Welcome to ReportedIP Hive Light"
+msgstr "Te damos la bienvenida a ReportedIP Hive Light"
+
+#: admin/class-setup-wizard.php:264
+msgid ""
+"This short setup configures the brute-force counter and lets you choose "
+"whether the plugin should also consult the reportedip.com community database"
+" during login attempts."
+msgstr ""
+"Esta breve configuración ajusta el contador de fuerza bruta y te permite "
+"elegir si el plugin debe consultar también la base de datos de la comunidad "
+"de reportedip.com durante los intentos de inicio de sesión."
+
+#: admin/class-setup-wizard.php:265
+msgid ""
+"You can change everything later under Settings → ReportedIP Hive Light."
+msgstr ""
+"Puedes cambiarlo todo más adelante en Ajustes → ReportedIP Hive Light."
+
+#: admin/class-setup-wizard.php:272
+msgid "Get started"
+msgstr "Empezar"
+
+#: admin/class-setup-wizard.php:308
+msgid ""
+"Checks IP reputation against the reportedip.com community database during "
+"login attempts and shares blocked IPs back. Usernames are never sent."
+msgstr ""
+"Comprueba la reputación de la IP en la base de datos de la comunidad de "
+"reportedip.com durante los intentos de inicio de sesión y comparte a cambio "
+"las IP bloqueadas. Los nombres de usuario nunca se envían."
+
+#: admin/class-setup-wizard.php:312
+msgid "Community Access Key (optional)"
+msgstr "Community Access Key (opcional)"
+
+#: admin/class-setup-wizard.php:314
+msgid ""
+"Required only for Community Network. A free key is available at "
+"reportedip.com."
+msgstr ""
+"Solo es necesaria para Community Network. Puedes conseguir una clave "
+"gratuita en reportedip.com."
+
+#: admin/class-setup-wizard.php:318 admin/class-setup-wizard.php:365
+msgid "Continue"
+msgstr "Continuar"
+
+#: admin/class-setup-wizard.php:343
+msgid "Protection settings"
+msgstr "Ajustes de protección"
+
+#: admin/class-setup-wizard.php:360
+msgid "Enable automatic blocking"
+msgstr "Activar el bloqueo automático"
+
+#: admin/class-setup-wizard.php:362
+msgid "When disabled, attempts are logged but no block is enforced."
+msgstr ""
+"Si está desactivado, los intentos se registran pero no se aplica ningún "
+"bloqueo."
+
+#: admin/class-setup-wizard.php:382
+msgid "You are protected."
+msgstr "Estás protegido."
+
+#: admin/class-setup-wizard.php:383
+msgid ""
+"ReportedIP Hive Light is active and listening to login attempts. Visit "
+"Settings → ReportedIP Hive Light any time to fine-tune thresholds, manage "
+"the whitelist, or review blocked IPs."
+msgstr ""
+"ReportedIP Hive Light está activo y vigila los intentos de inicio de sesión."
+" Visita Ajustes → ReportedIP Hive Light cuando quieras para ajustar los "
+"umbrales, gestionar la whitelist o revisar las IP bloqueadas."
+
+#: admin/class-setup-wizard.php:385
+msgid "Try a wrong-password login a few times to see the protection trigger."
+msgstr ""
+"Prueba a iniciar sesión varias veces con una contraseña incorrecta para ver "
+"cómo se activa la protección."
+
+#: admin/class-setup-wizard.php:386
+msgid "Whitelist your office IP under Whitelist before any security drills."
+msgstr ""
+"Añade la IP de tu oficina en Whitelist antes de hacer cualquier simulacro de"
+" seguridad."
+
+#: admin/class-setup-wizard.php:387
+msgid ""
+"Review the Privacy notice in Settings → Privacy if you intend to enable "
+"Community Network mode."
+msgstr ""
+"Revisa el aviso de privacidad en Ajustes → Privacidad si piensas activar el "
+"modo Community Network."
+
+#: admin/class-setup-wizard.php:394
+msgid "Open dashboard"
+msgstr "Abrir el escritorio"
+
+#: admin/class-whitelist-table.php:65
+msgid "IP / CIDR"
+msgstr "IP / CIDR"
+
+#: admin/class-whitelist-table.php:67
+msgid "Expires"
+msgstr "Caduca"
+
+#: admin/class-whitelist-table.php:68
+msgid "Added by"
+msgstr "Añadido por"
+
+#: admin/class-whitelist-table.php:69
+msgid "Added"
+msgstr "Añadido"
+
+#: admin/class-whitelist-table.php:81
+msgid "Remove selected"
+msgstr "Eliminar seleccionadas"
+
+#: admin/class-whitelist-table.php:187
+msgid "(none)"
+msgstr "(ninguno)"
+
+#: admin/class-whitelist-table.php:202
+msgid "Never"
+msgstr "Nunca"
+
+#: admin/class-whitelist-table.php:231
+msgid "(system)"
+msgstr "(sistema)"
+
+#: includes/class-api-client.php:181
+msgid "No access key provided."
+msgstr "No se ha indicado ninguna clave de acceso."
+
+#. translators: %s: human-readable error message from wp_remote
+#: includes/class-api-client.php:192
+#, php-format
+msgid "Could not reach reportedip.com: %s"
+msgstr "No se ha podido conectar con reportedip.com: %s"
+
+#: includes/class-api-client.php:202
+msgid "Connection successful. Your access key is valid."
+msgstr "Conexión correcta. Tu clave de acceso es válida."
+
+#: includes/class-api-client.php:209
+msgid "Connection failed: invalid access key. Check the key and try again."
+msgstr ""
+"Error de conexión: clave de acceso no válida. Comprueba la clave e inténtalo"
+" de nuevo."
+
+#. translators: %d: HTTP status code
+#: includes/class-api-client.php:217
+#, php-format
+msgid "Connection failed (HTTP %d). Please retry in a few minutes."
+msgstr ""
+"Error de conexión (HTTP %d). Vuelve a intentarlo dentro de unos minutos."
+
+#: includes/class-cron-handler.php:149
+msgid "Every 15 minutes"
+msgstr "Cada 15 minutos"
+
+#: includes/class-security-monitor.php:162 reportedip-hive.php:242
+msgid ""
+"Access denied. Your IP address has been temporarily blocked due to "
+"suspicious activity."
+msgstr ""
+"Acceso denegado. Tu dirección IP se ha bloqueado temporalmente por actividad"
+" sospechosa."
+
+#: includes/class-security-monitor.php:189
+msgid "Access denied. This IP address has been flagged by the community."
+msgstr "Acceso denegado. La comunidad ha marcado esta dirección IP."
+
+#: reportedip-hive.php:182
+msgid "Full Edition & PRO"
+msgstr "Full Edition & PRO"
+
+#: reportedip-hive.php:246
+msgid "Access denied"
+msgstr "Acceso denegado"
+
+#: reportedip-hive.php:402
+msgid ""
+"This plugin processes IP addresses to detect brute-force login attacks "
+"against your site. IP addresses are stored in the site database and may be "
+"displayed in the WordPress admin under \"ReportedIP Hive Light → Blocked "
+"IPs\"."
+msgstr ""
+"Este plugin procesa direcciones IP para detectar ataques de fuerza bruta "
+"contra el inicio de sesión de tu sitio. Las direcciones IP se guardan en la "
+"base de datos del sitio y pueden mostrarse en la administración de "
+"WordPress, en \"ReportedIP Hive Light → IP bloqueadas\"."
+
+#: reportedip-hive.php:403
+msgid ""
+"Usernames submitted to the login form are stored as a SHA-256 hash, salted "
+"with the site's wp_salt(). Usernames are never transmitted, neither in plain"
+" text nor hashed."
+msgstr ""
+"Los nombres de usuario enviados en el formulario de inicio de sesión se "
+"guardan como hash SHA-256, con la sal wp_salt() del sitio. Los nombres de "
+"usuario nunca se transmiten, ni en texto plano ni en hash."
+
+#: reportedip-hive.php:404
+msgid ""
+"In Local Shield mode (default), no data leaves your server. In Community "
+"Network mode, blocked IP addresses are shared with reportedip.com for "
+"collective threat intelligence, together with an event category and a short "
+"comment such as the number of failed logins. The site is identified only by "
+"the Community Access Key — no domain or contact information is transmitted."
+msgstr ""
+"En el modo Local Shield (por defecto), ningún dato sale de tu servidor. En "
+"el modo Community Network, las direcciones IP bloqueadas se comparten con "
+"reportedip.com para la inteligencia colectiva sobre amenazas, junto con una "
+"categoría de evento y un breve comentario, como el número de inicios de "
+"sesión fallidos. El sitio se identifica únicamente mediante la Community "
+"Access Key. No se transmite ningún dominio ni dato de contacto."
+
+#. translators: %s: settings page URL
+#: reportedip-hive.php:449
+#, php-format
+msgid ""
+"ReportedIP Hive Light is active. <a href=\"%s\">Configure protection</a> at "
+"Settings &rarr; ReportedIP Hive Light."
+msgstr ""
+"ReportedIP Hive Light está activo. <a href=\"%s\">Configura la "
+"protección</a> en Ajustes &rarr; ReportedIP Hive Light."
+
+#: reportedip-hive.php:454
+msgid "Dismiss notice"
+msgstr "Descartar aviso"

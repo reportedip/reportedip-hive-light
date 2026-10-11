@@ -4,7 +4,7 @@ Tags: limit login attempts, brute force, login security, security, firewall
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -221,6 +221,16 @@ ReportedIP Hive Light is provided "as is", without warranty of any kind (see the
 
 == Changelog ==
 
+= 1.3.9 =
+
+* German (also formal and Austrian), French and Spanish translations
+  are now bundled with the plugin.
+* The plugin now loads its bundled translations from the `languages`
+  folder. Language packs from translate.wordpress.org still take
+  precedence.
+* Rewritten plugin description and FAQ: every feature is now listed,
+  and the documentation no longer mentions a filter that does not exist.
+
 = 1.3.8 =
 
 * Privacy texts corrected. The readme, the settings page and the privacy
@@ -345,6 +355,9 @@ ReportedIP Hive Light is provided "as is", without warranty of any kind (see the
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3.9 =
+Adds German, French and Spanish translations. No protection-logic changes.
 
 = 1.3.8 =
 Privacy texts now match what the plugin sends: IP address, category ID and a short comment, no username hash. No protection-logic changes.

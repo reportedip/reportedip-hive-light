@@ -3,7 +3,7 @@
  * Plugin Name:       ReportedIP Hive Light
  * Plugin URI:        https://reportedip.com/products/wordpress-plugin/
  * Description:       Lightweight brute-force login protection with optional community-powered IP reputation checks.
- * Version:           1.3.8
+ * Version:           1.3.9
  * Requires at least: 6.1
  * Tested up to:      7.1
  * Requires PHP:      8.1
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.8' );
+defined( 'REPORTEDIP_HIVE_VERSION' ) || define( 'REPORTEDIP_HIVE_VERSION', '1.3.9' );
 defined( 'REPORTEDIP_HIVE_DB_VERSION' ) || define( 'REPORTEDIP_HIVE_DB_VERSION', '1.2.0' );
 defined( 'REPORTEDIP_HIVE_PLUGIN_FILE' ) || define( 'REPORTEDIP_HIVE_PLUGIN_FILE', __FILE__ );
 defined( 'REPORTEDIP_HIVE_PLUGIN_DIR' ) || define( 'REPORTEDIP_HIVE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -139,12 +139,27 @@ if ( ! class_exists( 'ReportedIP_Hive' ) ) {
 		}
 
 		/**
+		 * Register the bundled catalogs in languages/ as a fallback.
+		 *
+		 * WordPress only loads language packs from wp-content/languages/plugins/
+		 * on its own; those still take precedence over the bundled files.
+		 *
+		 * @return void
+		 * @since  1.3.9
+		 */
+		public function load_textdomain(): void {
+			// phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- bundled fallback catalogs.
+			load_plugin_textdomain( 'reportedip-hive', false, dirname( REPORTEDIP_HIVE_PLUGIN_BASENAME ) . '/languages' );
+		}
+
+		/**
 		 * Wire WordPress hooks.
 		 *
 		 * @return void
 		 * @since  1.0.0
 		 */
 		private function init_hooks(): void {
+			add_action( 'init', array( $this, 'load_textdomain' ), 0 );
 			add_action( 'init', array( $this->database, 'maybe_update_schema' ), 0 );
 			add_action( 'init', array( $this, 'enforce_block' ), 1 );
 
