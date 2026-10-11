@@ -1,0 +1,42 @@
+name: Update readme and assets on WordPress.org
+
+# Readme wording and directory assets change more often than the code. This
+# pushes readme.txt (trunk and the stable tag) and .wordpress-org/ to SVN
+# without a release, so a directory fix never needs a version bump.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "readme.txt"
+      - ".wordpress-org/**"
+  workflow_dispatch:
+
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Before the wp.org approval the SVN repository does not exist yet; skip instead of failing.
+      - name: Check SVN repository
+        id: svn
+        run: |
+          if curl -sfI "https://plugins.svn.wordpress.org/reportedip-hive/" >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "SVN repository not there yet, nothing to push."
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push readme and assets to WordPress.org
+        if: steps.svn.outputs.exists == 'true'
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: reportedip-hive
+          ASSETS_DIR: .wordpress-org
+          README_NAME: readme.txt
+          # The tag deploy generates the .pot on the runner, so trunk always differs from the repo there.
+          IGNORE_OTHER_FILES: true
