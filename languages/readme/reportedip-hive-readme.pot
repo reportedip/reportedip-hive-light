@@ -1,0 +1,972 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ReportedIP Hive Light readme 1.3.9\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Source: translate.wordpress.org dev-readme export\n"
+
+#. Short description.
+msgid ""
+"Limit login attempts, stop brute-force and password-spray attacks with "
+"progressive IP blocking. Free, GDPR-friendly, no external calls by default."
+msgstr ""
+
+#. Plugin name.
+msgid "ReportedIP Hive Light"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"English, German (informal, formal and Austrian), French and Spanish. "
+"Translations are managed on translate.wordpress.org, where you can help with"
+" other languages."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"No. This release protects the standard login through <code>wp-"
+"login.php</code> and every form that uses it. Application Passwords and XML-"
+"RPC use separate authentication paths that are not monitored."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. The block page is sent with HTTP status 403 and explicit no-cache "
+"headers, so WP Rocket, W3 Total Cache, WP Super Cache and LiteSpeed Cache do"
+" not store it."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. Set <em>Trusted Proxy Header</em> in <em>Settings → Connection</em> to "
+"<code>CF-Connecting-IP</code>. Only enable a proxy header when your reverse "
+"proxy reliably overwrites it on every request, otherwise attackers can spoof"
+" it."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. <em>ReportedIP Hive Light → Whitelist</em> accepts single IPv4 and IPv6"
+" addresses and IPv4 CIDR ranges such as <code>203.0.113.0/24</code>, each "
+"with an optional reason and expiry date."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"It can, if you fail several logins from your own IP. Add your IP to the "
+"whitelist to prevent this. To recover, wait until the block expires or "
+"delete the row from the <code>wp_reportedip_hive_blocked</code> table, for "
+"example with WP-CLI: <code>wp db query \"DELETE FROM "
+"wp_reportedip_hive_blocked WHERE ip_address = 'YOUR_IP'\"</code>."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"No. It only runs on login requests and in a cron job every 15 minutes. "
+"Normal page views are not touched, and no scripts or styles are loaded on "
+"the front end."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"It is built for GDPR compliance. IP addresses are processed on the basis of "
+"legitimate interest in network security (Art. 6(1)(f)), usernames are only "
+"stored as a salted hash and never transmitted, and Local Shield mode sends "
+"no data at all. The plugin adds a suggested text to the WordPress privacy "
+"policy guide. If you enable Community Network mode, mention reportedip.com "
+"in your privacy policy."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Instead of guessing many passwords for one account, the attacker tries one "
+"or two common passwords against many usernames. A plain login limiter often "
+"misses this. Hive Light counts the distinct usernames tried from one IP and "
+"blocks it when it crosses its own threshold (default: 5 usernames in 10 "
+"minutes)."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"It counts failed logins per IP address. With the default settings, an IP "
+"that fails 5 logins within 15 minutes is blocked, first for 5 minutes, then "
+"for longer periods up to 7 days if it keeps attacking. You can change the "
+"threshold, the time window and every step of the ladder in <em>Settings → "
+"Protection</em>."
+msgstr ""
+
+#. Found in faq header.
+msgid "Which languages are available?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Does the plugin protect Application Passwords and XML-RPC?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Does it work with page cache plugins?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I whitelist my office or agency IP?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Will the plugin slow down my site?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Is the plugin GDPR compliant?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Do I need an account or an access key?"
+msgstr ""
+
+#. Found in faq header.
+msgid "What is a password-spray attack?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How does ReportedIP Hive Light limit login attempts?"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid ""
+"The plugin protects your login right after activation in Local Shield mode. "
+"No configuration is required."
+msgstr ""
+
+#. Found in installation list item.
+msgid ""
+"Follow the setup wizard, or go to <em>ReportedIP Hive Light → Settings</em> "
+"and review the Connection, Protection and Privacy tabs."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin on the <em>Plugins</em> screen."
+msgstr ""
+
+#. Found in installation list item.
+msgid ""
+"In your WordPress admin go to <em>Plugins → Add New</em>, search for "
+"\"ReportedIP Hive Light\" and click <em>Install Now</em>. Alternatively "
+"upload the <code>reportedip-hive</code> folder to <code>/wp-"
+"content/plugins/</code>."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"ReportedIP Hive Light is provided \"as is\", without warranty of any kind "
+"(see the LICENSE file for the full GPLv2 text). It adds a layer of defence "
+"against brute-force and password-spray login attacks but does not replace "
+"strong passwords, two-factor authentication or server-level firewalls. No "
+"single security measure is a 100 % guarantee. Site operators who enable "
+"Community Network mode are responsible for assessing the lawful basis under "
+"their data-protection regime and for updating their privacy policy."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"Every stylesheet and script ships inside the plugin folder: "
+"<code>assets/css/design-system.css</code>, "
+"<code>assets/css/admin.css</code>, <code>assets/css/wizard.css</code> and "
+"<code>assets/js/admin.js</code> (tab switching and the \"Test connection\" "
+"button, which only calls WordPress' own <code>admin-ajax.php</code>). Icons "
+"are inline SVG. <strong>No CDN, no Google Fonts, no remote stylesheets or "
+"scripts are loaded</strong>, and no third-party PHP, JavaScript or CSS "
+"library is bundled. The GPLv2 licence text is included in the "
+"<code>LICENSE</code> file."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"When a failed login is recorded locally, the plugin stores <code>sha256( "
+"username + wp_salt() )</code> only, never the plain text. The hash stays on "
+"your server; reports do not contain it."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Compatibility</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Features at a glance</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Why site owners choose ReportedIP Hive Light</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"The plugin is deliberately focused on one job: keeping attackers away from "
+"your login form. No bloat, no tracking, no nag screens."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>ReportedIP Hive Light is a free WordPress plugin that limits login "
+"attempts and blocks brute-force and password-spray attacks on wp-"
+"login.php.</strong> It counts failed logins per IP address, locks attackers "
+"out for a growing period of time and, if you want, checks every login "
+"attempt against the reportedip.com community blocklist. It works out of the "
+"box, needs no account and sends no data anywhere unless you switch that on."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"In Community Network mode the data listed under \"External services\" is "
+"sent to reportedip.com."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Data NOT sent: usernames, passwords, request bodies, domain name, contact "
+"information"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Source code and issue tracker: <a "
+"href=\"https://github.com/reportedip/reportedip-hive-"
+"light\">github.com/reportedip/reportedip-hive-light</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Filters: <code>reportedip_hive_is_whitelisted</code>, "
+"<code>reportedip_hive_get_client_ip</code>, "
+"<code>reportedip_hive_api_endpoint</code>."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Cloudflare and other reverse proxies via the trusted proxy header setting"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Cache plugins: WP Rocket, W3 Total Cache, WP Super Cache, LiteSpeed Cache"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"WooCommerce \"My Account\" logins and every other login form that uses the "
+"standard <code>wp_login_failed</code> action"
+msgstr ""
+
+#. Found in description list item.
+msgid "WordPress 6.1 to 7.1, PHP 8.1 or newer"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"The block response is an HTTP 403 with <code>Cache-Control: no-store, no-"
+"cache, must-revalidate, max-age=0</code> and <code>Pragma: no-cache</code>, "
+"which WP Rocket, W3 Total Cache, WP Super Cache and LiteSpeed Cache respect."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<code>wp_authenticate_user</code> stops known-bad IPs before WordPress core "
+"checks the password."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"When the counter exceeds your threshold, the IP is blocked for the next "
+"duration on the progressive ladder."
+msgstr ""
+
+#. Found in description list item.
+msgid "Translation ready, with German, French and Spanish translations"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Clean uninstall: optionally removes all tables and options, also on "
+"multisite"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Block page with HTTP 403 and no-cache headers, so cache plugins never store "
+"it"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Optional Community Network mode: IP reputation lookup at login plus an "
+"asynchronous report queue with deduplication, retry and a configurable "
+"hourly API limit"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Real client IP detection behind Cloudflare, load balancers and reverse "
+"proxies (CF-Connecting-IP, X-Forwarded-For, X-Real-IP, True-Client-IP)"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Dashboard with active blocks, attempts and blocks in the last 24 hours, "
+"defended attacks for 24 h, 7 days, 30 days and all time, and a list of "
+"recent activity"
+msgstr ""
+
+#. Found in description list item.
+msgid "Blocked IPs list with bulk unblock"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"IP whitelist for single IPv4 and IPv6 addresses and IPv4 CIDR ranges, with "
+"an optional expiry date"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Report-only mode that detects and reports attacks without blocking, useful "
+"for staging sites"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Progressive block ladder with configurable steps; the ladder starts over "
+"once an IP has not been blocked for 30 days"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Password-spray detection with its own threshold and time window (default: 5 "
+"usernames in 10 minutes)"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Limit login attempts per IP with a configurable threshold and time window "
+"(default: 5 failed logins in 15 minutes)"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Made in Germany.</strong> Developed and operated by Patrick "
+"Schlesinger in Germany, open source under GPLv2."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Never locks out real users by accident.</strong> Community lookups "
+"have a two-second timeout and fail open, and a whitelist protects your own "
+"office or agency IPs."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Optional community protection.</strong> With a free Community Access"
+" Key, an IP that already attacked other sites can be refused before its "
+"first password attempt on yours."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Escalating blocks.</strong> Repeat offenders are locked out for "
+"longer each time: 5 min → 15 min → 30 min → 24 h → 48 h → 7 days."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Stops password spraying, not only brute force.</strong> Attackers "
+"who try many different usernames from one IP are detected separately from "
+"classic password guessing."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Lightweight.</strong> Nine core classes, no third-party libraries, "
+"no CDN, no Google Fonts, no remote scripts. The check runs only on login "
+"requests, so front-end page speed is not affected."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>GDPR-friendly by design.</strong> Usernames are only stored as a "
+"salted SHA-256 hash and never leave your server. IP processing is based on "
+"GDPR Art. 6(1)(f). A ready-made text for your privacy policy is added to "
+"<em>Settings → Privacy</em>."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Privacy by default.</strong> In the default Local Shield mode the "
+"plugin makes zero outbound network requests. All data stays in your own "
+"database."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Free and complete.</strong> Every feature in this plugin is free. "
+"Nothing is locked, there is no trial and no account is needed."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Works in 60 seconds.</strong> Activate it, and the default settings "
+"protect your login right away. A four-step setup wizard explains every "
+"choice."
+msgstr ""
+
+#. Found in description header.
+msgid "Bundled assets and licences"
+msgstr ""
+
+#. Screenshot description.
+msgid "Blocked IPs: admin list with bulk unblock."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Only in Community Network mode: the IP address, an integer category ID for "
+"the event type and a short comment such as \"5 failed logins in 15 "
+"minutes\". Usernames (plain or hashed), passwords, domains and contact "
+"details are never transmitted. See the \"External services\" section for "
+"details."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Usernames are stored locally as a salted SHA-256 hash and are never "
+"transmitted, neither in plain text nor hashed."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Hive Light itself has no paid tier, everything you see is free and fully "
+"functional. There is a separate Full Edition (free, GPL-2.0, on GitHub) with"
+" a WAF, 2FA and multisite support, and an optional Hive PRO subscription "
+"that adds a managed EU 2FA relay and multi-domain cover. See "
+"https://reportedip.com/products/wordpress-plugin/ for the comparison."
+msgstr ""
+
+#. Found in faq header.
+msgid "Is there a Pro version?"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"Hive Light is complete on its own and stays free, nothing in this plugin is "
+"locked or limited. If you need more than login protection, the separate <a "
+"href=\"https://reportedip.com/products/wordpress-plugin/\">Full Edition</a> "
+"(also free and GPL-2.0, distributed via GitHub) adds 16 attack sensors "
+"including a Web Application Firewall, four 2FA methods (authenticator app, "
+"e-mail, SMS, passkeys) and multisite support. The optional Hive PRO "
+"subscription on top of the Full Edition connects your sites to a managed, "
+"EU-hosted 2FA relay for SMS and e-mail codes (no Twilio account needed) and "
+"covers three domains with one licence."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Looking for more? ReportedIP Hive Full Edition and Hive PRO</strong>"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. WooCommerce uses the standard <code>wp_login_failed</code> action, "
+"which the plugin listens to. WooCommerce login attempts are counted together"
+" with regular logins."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Go to <em>ReportedIP Hive Light → Blocked IPs</em>, select the row and "
+"choose \"Unblock selected\" from the bulk actions menu."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"No. The default mode is Local Shield, which uses only your site's data and "
+"does not contact any external service. The plugin is fully functional "
+"without a key."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Register at reportedip.com. The Community Access Key is free."
+msgstr ""
+
+#. Found in faq header.
+msgid "My site is behind Cloudflare. Are real visitor IPs detected?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Does it work with WooCommerce login forms?"
+msgstr ""
+
+#. Found in faq header.
+msgid "What data does the plugin send to reportedip.com?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How do I unblock an IP from the admin?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Will the plugin lock me out of my own site?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How do I get a Community Access Key?"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"You can switch back to Local Shield mode at any time in <em>ReportedIP Hive "
+"Light → Settings → Connection</em>. This stops all external traffic "
+"immediately."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"This plugin can connect to the ReportedIP API at "
+"<code>https://reportedip.com</code>. All external requests are <strong>opt-"
+"in only</strong>. They are made exclusively when (a) a \"Community Access "
+"Key\" has been entered in the plugin settings and (b) the \"Operation Mode\""
+" is set to \"Community Network\". The default mode is \"Local Shield\", "
+"which performs zero external requests."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>For developers</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>How it works</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Two operating modes</strong>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Activate \"Delete all data on uninstall\" in <em>Settings → Privacy</em> to "
+"remove all plugin tables and options when the plugin is deleted."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Data retention is configurable in <em>Settings → Privacy</em>. The default "
+"attempt window is 15 minutes; the API queue retention is 7 days."
+msgstr ""
+
+#. Found in description list item.
+msgid "In Local Shield mode (default) no data leaves your server."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"IP addresses are processed under GDPR Art. 6(1)(f) (legitimate interest in "
+"network security)."
+msgstr ""
+
+#. Found in description list item.
+msgid "Contact: <a href=\"mailto:1@reportedip.com\">1@reportedip.com</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Source code: <a href=\"https://github.com/reportedip/reportedip-hive-"
+"light\">github.com/reportedip/reportedip-hive-light</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Privacy policy: <a "
+"href=\"https://reportedip.com/datenschutzerklaerung/\">reportedip.com/datenschutzerklaerung</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Terms of use: <a "
+"href=\"https://reportedip.com/nutzungsbedingungen/\">reportedip.com/nutzungsbedingungen</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Legal notice (Impressum): <a "
+"href=\"https://reportedip.com/impressum/\">reportedip.com/impressum</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Service URL: <a href=\"https://reportedip.com\">reportedip.com</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Operator: Patrick Schlesinger, Germany"
+msgstr ""
+
+#. Found in description list item.
+msgid "Data sent: only the access key under verification"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Trigger: an administrator clicks \"Test connection\" in the plugin settings"
+msgstr ""
+
+#. Found in description list item.
+msgid "Auth header: <code>X-Key: {entered-key}</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"URL: <code>https://reportedip.com/wp-json/reportedip/v2/verify-key</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Data sent: the offending IP, an integer category ID for the threat type and "
+"a short comment (e.g. \"5 failed logins in 15 minutes\")"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Trigger: a brute-force or spray threshold has been exceeded; the report is "
+"queued in the database and sent by a 15-minute cron job"
+msgstr ""
+
+#. Found in description list item.
+msgid "HTTP verb: POST (JSON body)"
+msgstr ""
+
+#. Found in description list item.
+msgid "URL: <code>https://reportedip.com/wp-json/reportedip/v2/report</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Data NOT sent: usernames, passwords, cookies, server identifiers, domain "
+"name"
+msgstr ""
+
+#. Found in description list item.
+msgid "Data sent: only the source IP address of the current login attempt"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Timeout: 2 seconds (fail-open, the login proceeds when the API does not "
+"respond)"
+msgstr ""
+
+#. Found in description list item.
+msgid "Trigger: a login attempt reaches <code>wp_authenticate_user</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Auth header: <code>X-Key: {your-access-key}</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid "HTTP verb: GET"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"URL: <code>https://reportedip.com/wp-json/reportedip/v2/check?ip={ip}</code>"
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"Actions: <code>reportedip_hive_log</code>, "
+"<code>reportedip_hive_ip_blocked</code>, "
+"<code>reportedip_hive_report_queued</code>."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<code>wp_login_failed</code> increments a per-IP counter with an atomic "
+"upsert, so there are no race conditions under concurrent attacks."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Community Network (optional).</strong> When you enter a free "
+"Community Access Key from reportedip.com, the plugin also checks the source "
+"IP against the reportedip.com community database during login attempts and "
+"shares blocked IPs back to the community. Both calls are clearly disclosed "
+"in the settings and in the \"External services\" section below."
+msgstr ""
+
+#. Found in description list item.
+msgid ""
+"<strong>Local Shield (default).</strong> Counts failed logins per IP and "
+"blocks attackers based on your thresholds. The plugin makes zero outbound "
+"network requests in this mode, all data stays on your server."
+msgstr ""
+
+#. Found in description header.
+msgid "Disclaimer"
+msgstr ""
+
+#. Found in description header.
+msgid "Privacy"
+msgstr ""
+
+#. Found in description header.
+msgid "Service provider"
+msgstr ""
+
+#. Found in description header.
+msgid "Hashing of submitted usernames"
+msgstr ""
+
+#. Found in description header.
+msgid "Endpoint 3: Access-key verification"
+msgstr ""
+
+#. Found in description header.
+msgid "Endpoint 2: Blocked-IP report"
+msgstr ""
+
+#. Found in description header.
+msgid "Endpoint 1: IP-reputation lookup"
+msgstr ""
+
+#. Found in description header.
+msgid "External services"
+msgstr ""
+
+#. Screenshot description.
+msgid "Empty state: what new installs see before any IP is blocked."
+msgstr ""
+
+#. Screenshot description.
+msgid "Privacy tab: cache durations, queue retention and uninstall behaviour."
+msgstr ""
+
+#. Screenshot description.
+msgid "Protection tab: thresholds and the progressive block ladder."
+msgstr ""
+
+#. Screenshot description.
+msgid "Connection tab: operation mode, access key and reverse-proxy header."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Rewritten plugin description and FAQ: every feature is now listed,\n"
+"and the documentation no longer mentions a filter that does not exist."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"The plugin now loads its bundled translations from the <code>languages</code>\n"
+"folder. Language packs from translate.wordpress.org still take\n"
+"precedence."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"German (also formal and Austrian), French and Spanish translations\n"
+"are now bundled with the plugin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested up to WordPress 7.1."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Privacy texts corrected. The readme, the settings page and the privacy\n"
+"policy suggestion said a report carries a hashed username and a\n"
+"timestamp. It never did: a report contains only the IP address, the\n"
+"category ID and a short comment. The username hash stays on your server."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Existing installations that still use the former default API endpoint\n"
+"are migrated automatically on upgrade; custom endpoint values are left\n"
+"untouched. Schema/data migrations now also run on plugin updates, not\n"
+"only on activation."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"The ReportedIP service has moved from reportedip.de to reportedip.com.\n"
+"All plugin URLs (product page, legal pages, API endpoint default) and\n"
+"the support contact address now point at the new domain."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Declare compatibility with WordPress 7.0 and raise the minimum\n"
+"supported version to 6.1 (required by the <code>wp_cache_flush_group()</code>\n"
+"call in the uninstall routine)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add a Full Edition &amp; PRO link to the plugin's row in the Plugins list\n"
+"and a static footer card on the plugin's own admin pages. No\n"
+"protection-logic changes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Document the relationship to the free Full Edition and the optional\n"
+"Hive PRO subscription in the readme description and FAQ."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Update the plugin homepage to point at the product page on\n"
+"reportedip.de instead of the wp.org listing itself."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"772x250 hero banners, and five 1280x720 screenshots covering the\n"
+"Connection, Protection and Privacy tabs, the Blocked IPs list view\n"
+"and the empty state. No code change in this release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add wp.org plugin-directory listing assets: 128x128 + 256x256 icons\n"
+"(static PNG and animated GIF with a heartbeat-pulse loop), 1544x500"
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Stop the API report queue from filling with duplicates during a\n"
+"sustained brute-force. <code>wp_login_failed</code> now short-circuits when the\n"
+"source IP is already blocked, and <code>queue_api_report</code> deduplicates\n"
+"against any open (<code>pending</code> or <code>processing</code>) report for the same IP.\n"
+"One incident yields exactly one outbound community report instead of\n"
+"one per retry; the block-escalation ladder no longer steps on every\n"
+"attempt against an already-locked door."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Restore the design-system CSS frame on the Settings, Blocked IPs and\n"
+"Whitelist sub-pages. The 1.3.2 display rename changed the WordPress\n"
+"submenu hook suffix from <code>reportedip-hive_page_*</code> to\n"
+"  reportedip-hive-light_page_*, but the enqueue gate still matched the\n"
+"old prefix and silently skipped the asset enqueue. Hook suffixes are\n"
+"now captured from the menu-API return values so the gate stays\n"
+"correct regardless of the menu title."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Initial release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Schema bumped to v1.1.0 (idempotent migration on activation)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Hide the Community Access Key card unless the operation mode is set to\n"
+"Community Network."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Polish admin chrome: branded shield logo, three iconed trust badges\n"
+"(Security Focused / GDPR Compliant / Made in Germany), better contrast on\n"
+"the welcome notice."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Replace the WordPress default \"Settings saved\" notice with a design-system\n"
+"alert rendered immediately under the page header."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add a 4-step setup wizard that runs on first activation (Welcome →\n"
+"Operation mode → Protection → Done)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add an IP whitelist with optional CIDR ranges, expiry, and a dedicated\n"
+"admin page (Settings → ReportedIP Hive → Whitelist)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Settings, Blocked IPs and Whitelist are now sub-pages of the new\n"
+"Dashboard."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Track outbound API calls per rolling 1-hour window and visualise the\n"
+"quota with a progress bar on the dashboard. When the configured maximum\n"
+"is reached, IP-reputation lookups are skipped (login still proceeds,\n"
+"fail-open) until the window resets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add a Dashboard landing page (Settings → ReportedIP Hive) with 4 stat\n"
+"cards (active blocks, blocks last 24 h, attempts last 24 h, whitelist\n"
+"size), an operation-mode summary, the report-queue status (pending /\n"
+"processing / completed / failed), and a recent-activity list."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add long-term \"Defended attacks\" statistics to the dashboard with\n"
+"rolling-window block counts for the last 24 hours, last 7 days, last\n"
+"30 days, and all time."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Fix the legal-notice URLs in <code>readme.txt</code> to point at the canonical\n"
+"Impressum, Nutzungsbedingungen and Datenschutzerklaerung pages on\n"
+"reportedip.de."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Remove the <code>DONOTCACHEPAGE</code> / <code>DONOTCACHEDB</code> / <code>DONOTCACHEOBJECT</code> defines\n"
+"from the block-response path. The HTTP 403 status plus explicit\n"
+"  Cache-Control: no-store and <code>Pragma: no-cache</code> headers continue to\n"
+"instruct WP Rocket, W3 Total Cache, WP Super Cache and LiteSpeed not to\n"
+"cache the block page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add a GitHub source-code link to the <code>Service provider</code> section of the\n"
+"readme and convert the existing reportedip.de URLs to Markdown links so\n"
+"the wp.org renderer turns them into clickable anchors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Rename the user-facing plugin title to <strong>ReportedIP Hive Light</strong> in the\n"
+"WordPress plugin listing, the wp.org listing, the admin menu, the setup\n"
+"wizard, the welcome notice, and the privacy-policy suggestion. Plugin\n"
+"slug, text domain, class prefix, option keys and database tables are\n"
+"unchanged. Display name only, no migration."
+msgstr ""
+
+#. Found in changelog list item.
+msgid ""
+"Add <code>.git</code> to <code>.distignore</code> so the GitHub-Actions deployment no longer\n"
+"copies the repository's Git metadata directory into the wp.org SVN.\n"
+"The 1.3.2 release accidentally shipped a <code>trunk/.git/</code> and\n"
+"  tags/1.3.2/.git/; both have been removed from SVN."
+msgstr ""
