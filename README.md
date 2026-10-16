@@ -1,3 +1,5 @@
+> **This repository is archived.** ReportedIP Hive Light was replaced by ReportedIP Hive 3.0, which ships the full free feature set on wordpress.org: <https://wordpress.org/plugins/reportedip-hive/>. Source code: <https://github.com/reportedip/reportedip-hive>. Documentation: <https://reportedip.com/docs/integrations/wordpress-hive/?rc=hive-github>.
+
 # ReportedIP Hive Light
 
 Lightweight brute-force login protection for WordPress, with optional
